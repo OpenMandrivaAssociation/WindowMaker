@@ -3,7 +3,7 @@
 
 %define	wmcalclock	wmCalClock-1.25
 %define version		0.92.0
-%define rel     	9
+%define rel     	10
 %define mdkrelease	%mkrel %rel
 %define _pixdir     %_datadir/pixmaps
 %define gnustepdir  %_prefix/GNUstep
@@ -45,6 +45,9 @@ Patch10:	WindowMaker-0.92.0-asm-gcc4.patch.bz2
 
 Patch11:	WindowMaker-0.92.0-fix-x86_64.patch.bz2
 
+# fix a bogus buffer length for a snprintf call in SendHelperMessage
+Patch12:	WindowMaker-0.92.0-setWorkspaceSpecificBack.patch
+
 Requires:	gcc-cpp, mandrake_desk >= 8.3-3mdk
 %if %mdkversion > 1000
 Requires:	mandrakelinux-theme
@@ -56,7 +59,8 @@ Provides:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowM
 
 BuildRoot:	%_tmppath/%name-%version-%release-root
 
-BuildRequires:	libx11-static-devel automake1.4
+BuildRequires:	automake1.4
+BuildRequires:	libxft-devel libxinerama-devel
 BuildRequires:	gcc-cpp
 BuildRequires:	libhermes-devel libjpeg-devel
 BuildRequires:	libpng-devel libtiff-devel libungif-devel
@@ -166,6 +170,7 @@ This package contains static libraries needed for development.
 
 %patch10 -p0
 %patch11 -p1 -b .fix_compile_x86_64
+%patch12 -p1 -b .setWorkspaceSpecificBack
 
 %build
 # protect the WPrefs.app location for unclean build envs with gnustep-make installed
