@@ -1,24 +1,24 @@
-%define major		3
-%define libwraster	 %mklibname wraster %major
+%define major			3
+%define libwraster		%mklibname wraster %major
+%define libwrasterdev		%mklibname wraster -d
+%define libwrasterstatic	%mklibname wraster -d -s
 
 %define	wmcalclock	wmCalClock-1.25
 %define version		0.92.0
-%define rel     	10
+%define rel     	11
 %define mdkrelease	%mkrel %rel
-%define _pixdir     %_datadir/pixmaps
-%define gnustepdir  %_prefix/GNUstep
+%define _pixdir		%_datadir/pixmaps
+%define gnustepdir	%_prefix/GNUstep
 
-%define wmmajor 0
-%define libnamedev %mklibname %name %wmmajor -d
-%define libnamestatic %mklibname %name %wmmajor -s -d
-
-%define x11dir	%{_prefix}/X11R6/%{_lib}
+%define wmmajor		0
+%define libnamedev	%mklibname %name -d
+%define libnamestatic	%mklibname %name -s -d
 
 Summary:	A window manager for the X Window System
 Name:		WindowMaker
 Version:	%{version}
 Release:	%{mdkrelease}
-License:	GPL
+License:	GPLv2+
 Group:		Graphical desktop/WindowMaker
 URL:		http://www.windowmaker.org/ 
 
@@ -48,12 +48,9 @@ Patch11:	WindowMaker-0.92.0-fix-x86_64.patch.bz2
 # fix a bogus buffer length for a snprintf call in SendHelperMessage
 Patch12:	WindowMaker-0.92.0-setWorkspaceSpecificBack.patch
 
-Requires:	gcc-cpp, mandrake_desk >= 8.3-3mdk
-%if %mdkversion > 1000
-Requires:	mandrakelinux-theme
-%else
-Requires:       mandrake-theme
-%endif
+Requires:	gcc-cpp
+Requires:	desktop-common-data
+Requires:       mandriva-theme
 Obsoletes:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 Provides:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 
@@ -98,38 +95,40 @@ the moment. Support for other image formats can be added in the future.
 This package contains a shared library needed if you wish use WindowMaker.
 
 
-%package -n %{libwraster}-devel
+%package -n	%{libwrasterdev}
 Summary:	Window Maker Raster Graphics Library development files	
 Group:		Development/C
-Requires:		%{libwraster} = %version
+Requires:	%{libwraster} = %version
 Provides:	libwraster-devel
-Provides:	%{libwraster}-devel
 Conflicts:	libwraster2-devel
+Obsoletes:	%{mklibname wraster 3 -d}
 
-%description -n %{libwraster}-devel
+%description -n %{libwrasterdev}
 This package allows building applications using the libwraster library.
 
 
-%package -n %{libwraster}-static-devel
+%package -n %{libwrasterstatic}
 Summary:	Libwraster - Static library
 Group:		Development/C
-Requires:   %{libwraster}-devel = %version
+Requires:	%{libwrasterdev} = %version
 Provides:	libwraster-static-devel
 Conflicts:	libwraster2-static-devel
+Obsoletes:	%{mklibname wraster 3 -d -s}
 
-%description -n %{libwraster}-static-devel
+%description -n %{libwrasterstatic}
 This package contains a static library used to build statically linked 
 applications against libwraster.
 
 
-%package -n %libnamedev
+%package -n %{libnamedev}
 Summary:	Libraries and header files for WindowMaker
 Group:		Development/C
-Requires:		%{libwraster}-devel = %version
+Requires:	%{libwrasterdev} = %version
+Obsoletes:	%{mklibname WindowMaker 0 -d}
 Obsoletes:	windowmaker-devel, WindowMaker-devel
 Provides:	windowmaker-devel, WindowMaker-devel
 
-%description -n %libnamedev
+%description -n %{libnamedev}
 Window Maker is an X11 window manager which emulates the look and feel of the
 NeXTSTEP (TM) graphical user interface. It is relatively fast, feature rich and
 easy to configure and use. Window Maker is part of the official GNU project,
@@ -143,14 +142,15 @@ a workspace dock, a 'clip' which extends the application dock's usefulness.
 This package contains headers needed for development.
 
 
-%package -n %libnamestatic
+%package -n %{libnamestatic}
 Summary:	Static libraries and header files for WindowMaker
 Group:		Development/C
-Requires:		%libnamedev = %version
+Requires:	%{libnamedev} = %{version}
+Obsoletes:	%{mklibname WindowMaker 0 -d -s}
 Obsoletes:	WindowMaker-static-devel
 Provides:	WindowMaker-static-devel
 
-%description -n %libnamestatic
+%description -n %{libnamestatic}
 Window Maker is an X11 window manager which emulates the look and feel of the
 NeXTSTEP (TM) graphical user interface. It is relatively fast, feature rich and
 easy to configure and use. Window Maker is part of the official GNU project,
@@ -195,7 +195,7 @@ make
 
 ## wmCalClock (default clock)
 pushd wmCalClock-1.25/Src
-make LIBDIR=-L%{x11dir}
+make
 popd
 
 
@@ -374,7 +374,7 @@ rm -fr %buildroot
 
 %files -f %name.lang
 %defattr(-,root,root,-)
-%doc AUTHORS BUGFORM BUGS ChangeLog COPYING COPYING.WTFPL FAQ FAQ.I18N MIRRORS NEWS README* TODO
+%doc AUTHORS BUGFORM BUGS ChangeLog COPYING.WTFPL FAQ FAQ.I18N MIRRORS NEWS README* TODO
 %doc %_docdir/%{wmcalclock}
 
 %dir %_sysconfdir/X11/WindowMaker/
@@ -415,19 +415,19 @@ rm -fr %buildroot
 %_libdir/libwraster.so.*
 
 
-%files -n %{libwraster}-devel
+%files -n %{libwrasterdev}
 %defattr(-,root,root)
 %_includedir/wraster.h
 %_libdir/libwraster.so
 %_libdir/libwraster.la
 
 
-%files -n %{libwraster}-static-devel
+%files -n %{libwrasterstatic}
 %defattr(-,root,root,-)
 %_libdir/libwraster.a
 
 
-%files -n %libnamedev
+%files -n %{libnamedev}
 %defattr(-,root,root,-)
 %_includedir/WMaker.h
 
@@ -435,7 +435,7 @@ rm -fr %buildroot
 %_includedir/WINGs/*.h
 %_libdir/pkgconfig/*.pc
 
-%files -n %libnamestatic
+%files -n %{libnamestatic}
 %defattr(-,root,root,-)
 %_libdir/libE*.a
 %_libdir/libW*.a
