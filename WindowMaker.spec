@@ -5,7 +5,7 @@
 
 %define	wmcalclock	wmCalClock-1.25
 %define version		0.92.0
-%define rel     	11
+%define rel     	12
 %define mdkrelease	%mkrel %rel
 %define _pixdir		%_datadir/pixmaps
 %define gnustepdir	%_prefix/GNUstep
@@ -47,6 +47,9 @@ Patch11:	WindowMaker-0.92.0-fix-x86_64.patch.bz2
 
 # fix a bogus buffer length for a snprintf call in SendHelperMessage
 Patch12:	WindowMaker-0.92.0-setWorkspaceSpecificBack.patch
+
+# include the xdg menu (do not replace the original menu since it contains windowmaker-specific commands)
+Patch13:	WindowMaker-0.92.0-applications-menu.patch
 
 Requires:	gcc-cpp
 Requires:	desktop-common-data
@@ -171,6 +174,7 @@ This package contains static libraries needed for development.
 %patch10 -p0
 %patch11 -p1 -b .fix_compile_x86_64
 %patch12 -p1 -b .setWorkspaceSpecificBack
+%patch13 -p1 -b .xdg
 
 %build
 # protect the WPrefs.app location for unclean build envs with gnustep-make installed
