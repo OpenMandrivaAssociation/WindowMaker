@@ -20,7 +20,7 @@ Version:	%{version}
 Release:	%{mdkrelease}
 License:	GPLv2+
 Group:		Graphical desktop/WindowMaker
-URL:		http://www.windowmaker.org/ 
+URL:		http://www.windowmaker.info/
 
 Source0:	ftp://windowmaker.org/pub/source/release/%name-%version.tar.bz2
 Source1:	WindowMaker-data.tar.bz2
