@@ -5,7 +5,7 @@
 
 %define	wmcalclock	wmCalClock-1.25
 %define version		0.92.0
-%define rel     	12
+%define rel     	13
 %define mdkrelease	%mkrel %rel
 %define _pixdir		%_datadir/pixmaps
 %define gnustepdir	%_prefix/GNUstep
@@ -232,81 +232,8 @@ install -m 755 %SOURCE10 %buildroot/%_bindir
 
 # Menu support
 
-%if %mdkversion >= 200700
 install -d %buildroot/%_sysconfdir/menu.d
 install -m 755 %SOURCE23 %buildroot/%_sysconfdir/menu.d/%name
-%else
-
-install -d %buildroot/%_menudir
-install -d %buildroot/%_sysconfdir/menu-methods
-install -m 755 %SOURCE4 %buildroot/%_sysconfdir/menu-methods/%name
-cat > %buildroot/%_menudir/%name << EOF
-# Call Window Maker in other window managers
-?package(%name): needs=wm section=Session/Windowmanagers title="Window Maker" longtitle="Empty" command="%_bindir/startwindowmaker" icon="%name.png"
-
-# Desktop
-?package(%name): needs=wmaker section="Session/Window Maker" title="Desktops" longtitle="Empty" command="WORKSPACE_MENU"
-
-# Workspace
-?package(%name): needs=wmaker section="Session/Window Maker/Workspace" title="Hide Others" longtitle="Empty" command="HIDE_OTHERS"
-?package(%name): needs=wmaker section="Session/Window Maker/Workspace" title="Show All" longtitle="Empty" command="SHOW_ALL"
-?package(%name): needs=wmaker section="Session/Window Maker/Workspace" title="Arrange Icons" longtitle="Empty" command=ARRANGE_ICONS
-?package(%name): needs=wmaker section="Session/Window Maker/Workspace" title="Refresh" longtitle="Empty" command=REFRESH
-?package(%name): needs=wmaker section="Session/Window Maker/Workspace" title="Lock"  longtitle="Empty" command="EXEC xlock -allowroot -usefirst"
-?package(%name): needs=wmaker section="Session/Window Maker/Workspace" title="Save Session" longtitle="Empty" command=SAVE_SESSION
-?package(%name): needs=wmaker section="Session/Window Maker/Workspace" title="Clear Session" longtitle="Empty" command=CLEAR_SESSION
-
-# Themes
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance" title="Themes" longtitle="Empty" command="OPEN_MENU -noext %_datadir/%name/Themes \$HOME/GNUstep/Library/WindowMaker/Themes WITH setstyle"
-
-# Styles
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance" title="Styles" longtitle="Empty" command="OPEN_MENU -noext %_datadir/%name/Styles \$HOME/GNUstep/Library/WindowMaker/Styles WITH setstyle"
-
-# Backgrounds (solid)
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Solid" title="Black" longtitle="Empty" command="WS_BACK '(solid, black)'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Solid" title="Blue" longtitle="Empty" command="WS_BACK '(solid, \"#505075\")'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Solid" title="Indigo" longtitle="Empty" command="WS_BACK '(solid, \"#243e6c\")'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Solid" title="Bleumarine" longtitle="Empty" command="WS_BACK '(solid, \"#224477\")'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Solid" title="Purple" longtitle="Empty" command="WS_BACK '(solid, \"#554466\")'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Solid" title="Wheat" longtitle="Empty" command=" WS_BACK '(solid, \"wheat4\")'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Solid" title="Dark Gray" longtitle="Empty" command="WS_BACK '(solid, \"#333340\")'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Solid" title="Red Wine" longtitle="Empty" command="WS_BACK '(solid, \"#400020\")'"
-
-# Background (Gradient)
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Gradient" title="Sunset" longtitle="Empty" command="WS_BACK '(mvgradient, deepskyblue4, black, deepskyblue4, tomato4)'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Gradient" title="Sky" longtitle="Empty" command="WS_BACK '(vgradient, blue4, white)'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Gradient" title="Blue Shades" longtitle="Empty" command="WS_BACK '(vgradient, \"#7080a5\", \"#101020\")'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Gradient" title="Indigo Shades" longtitle="Empty" command="WS_BACK '(vgradient, \"#746ebc\", \"#242e4c\")'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Gradient" title="Purple Shades" longtitle="Empty" command="WS_BACK '(vgradient, \"#654c66\", \"#151426\")'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Gradient" title="Wheat Shades" longtitle="Empty" command="WS_BACK '(vgradient, \"#a09060\", \"#302010\")'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Gradient" title="Grey Shades" longtitle="Empty" command="WS_BACK '(vgradient, \"#636380\", \"#131318\")'"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Gradient" title="Wine Shades" longtitle="Empty" command="WS_BACK '(vgradient, \"#600040\", \"#180010\")'"
-
-# Background (Images)
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Images" title="Scaled" longtitle="Empty" command="OPEN_MENU -noext %_datadir/%name/Backgrounds \$HOME/GNUstep/Library/WindowMaker/Backgrounds WITH wmsetbg -u -s"
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance/Background/Images" title="Tiled"  longtitle="Empty" command="OPEN_MENU -noext %_datadir/%name/Backgrounds \$HOME/GNUstep/Library/WindowMaker/Backgrounds WITH wmsetbg -u -t"
-
-# Save theme and preference utility
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance" title="Save Theme" longtitle="Empty" command="SHEXEC getstyle -t \$HOME/GNUstep/Library/WindowMaker/Themes/\"%a(Theme name,Enter file name:)\""
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance" title="Save IconSet" longtitle="Empty" command="SHEXEC geticonset \$HOME/GNUstep/Library/WindowMaker/IconSets/\"%a(IconSet name,Enter file name:)\""
-?package(%name): needs=wmaker section="Session/Window Maker/Appearance" title="Preferences Utility" longtitle="Empty" command="EXEC %gnustepdir/Applications/WPrefs.app/WPrefs"
-
-# Information
-?package(%name): needs=wmaker section="Session/Window Maker/Information" title="Info Panel" longtitle="Empty" command="INFO_PANEL"
-?package(%name): needs=wmaker section="Session/Window Maker/Information" title="Legal" longtitle="Empty" command="LEGAL_PANEL"
-
-# Selection
-?package(%name): needs=wmaker section="Session/Window Maker/Selection" title="Copy" longtitle="Empty" command="SHEXEC echo \'%s\' | wxcopy"
-?package(%name): needs=wmaker section="Session/Window Maker/Selection" title="Search in manual" longtitle="Empty" command="SHEXEC MANUAL_SEARCH(%s)"
-
-# Exit and restart
-?package(%name): needs=wmaker section="Exit" title="Restart" longtitle="Empty" command="RESTART"
-?package(%name): needs=wmaker section="Exit" title="Exit" longtitle="Empty" command="EXIT"
-EOF
-
-%endif
-rm -f %buildroot/%_datadir/WindowMaker/menu.*
-
 
 # Icons
 mkdir -p $RPM_BUILD_ROOT{%_iconsdir,%_miconsdir,%_liconsdir}
@@ -383,11 +310,7 @@ rm -fr %buildroot
 
 %dir %_sysconfdir/X11/WindowMaker/
 %config(noreplace) %_sysconfdir/X11/WindowMaker/*
-%if %mdkversion < 200700
-%config(noreplace) %_sysconfdir/menu-methods/WindowMaker
-%else 
 %_sysconfdir/menu.d/WindowMaker
-%endif
 %config(noreplace) %_sysconfdir/X11/wmsession.d/*
 
 %_bindir/*
@@ -404,9 +327,6 @@ rm -fr %buildroot
 %_datadir/WINGs/*.tiff
 %_datadir/WINGs/*.xpm
 
-%if %mdkversion < 200700
-%_menudir/WindowMaker
-%endif
 %_iconsdir/%name.png
 %_liconsdir/%name.png
 %_miconsdir/%name.png
