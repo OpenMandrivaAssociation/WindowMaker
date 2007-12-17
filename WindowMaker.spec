@@ -57,7 +57,6 @@ Requires:       mandriva-theme
 Obsoletes:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 Provides:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 
-BuildRoot:	%_tmppath/%name-%version-%release-root
 
 BuildRequires:	automake1.4
 BuildRequires:	libxft-devel libxinerama-devel
