@@ -56,6 +56,10 @@ Patch14:	181001-Substitute-polling-with-kernel-s-dnotify-mechanism.patch
 Patch15:	181041-Remove-timer-which-calls-delayedAction.patch
 Patch16:	181061-Remove-useless-timer.patch
 
+# This patch fixes a nasty bug switching virtual consoles when the
+# Composite extension is enabled but default depth is not 24
+Patch17:	WindowMaker-0.92.0-specify-visual-id-to-avoid-composite-corruption.patch
+
 Requires:	gcc-cpp
 Requires:	desktop-common-data
 Requires:       mandriva-theme
@@ -183,6 +187,7 @@ This package contains static libraries needed for development.
 %patch14 -p1
 %patch15 -p1
 %patch16 -p1
+%patch17 -p1
 
 %build
 # protect the WPrefs.app location for unclean build envs with gnustep-make installed
