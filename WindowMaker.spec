@@ -5,7 +5,7 @@
 
 %define	wmcalclock	wmCalClock-1.25
 %define version		0.92.0
-%define rel     	14
+%define rel     	15
 %define mdkrelease	%mkrel %rel
 %define _pixdir		%_datadir/pixmaps
 %define gnustepdir	%_prefix/GNUstep
@@ -50,6 +50,11 @@ Patch12:	WindowMaker-0.92.0-setWorkspaceSpecificBack.patch
 
 # include the xdg menu (do not replace the original menu since it contains windowmaker-specific commands)
 Patch13:	WindowMaker-0.92.0-applications-menu.patch
+
+# 3 next patches from https://bugzilla.redhat.com/show_bug.cgi?id=267041
+Patch14:	181001-Substitute-polling-with-kernel-s-dnotify-mechanism.patch
+Patch15:	181041-Remove-timer-which-calls-delayedAction.patch
+Patch16:	181061-Remove-useless-timer.patch
 
 Requires:	gcc-cpp
 Requires:	desktop-common-data
@@ -175,6 +180,9 @@ This package contains static libraries needed for development.
 %patch11 -p1 -b .fix_compile_x86_64
 %patch12 -p1 -b .setWorkspaceSpecificBack
 %patch13 -p1 -b .xdg
+%patch14 -p1
+%patch15 -p1
+%patch16 -p1
 
 %build
 # protect the WPrefs.app location for unclean build envs with gnustep-make installed
