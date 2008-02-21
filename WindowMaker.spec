@@ -245,8 +245,8 @@ install -m 755 %SOURCE10 %buildroot/%_bindir
 
 # Menu support
 
-install -d %buildroot/%_sysconfdir/menu.d
-install -m 755 %SOURCE23 %buildroot/%_sysconfdir/menu.d/%name
+install -d %{buildroot}/%{_menudir}
+install -m 755 %SOURCE23 %{buildroot}/%{_menudir}/%{name}
 
 # Icons
 mkdir -p $RPM_BUILD_ROOT{%_iconsdir,%_miconsdir,%_liconsdir}
@@ -323,7 +323,7 @@ rm -fr %buildroot
 
 %dir %_sysconfdir/X11/WindowMaker/
 %config(noreplace) %_sysconfdir/X11/WindowMaker/*
-%_sysconfdir/menu.d/WindowMaker
+%{_menudir}/%{name}
 %config(noreplace) %_sysconfdir/X11/wmsession.d/*
 
 %_bindir/*
