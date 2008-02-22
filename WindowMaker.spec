@@ -35,7 +35,7 @@ Source15:	WindowMaker-WMState
 Source20:	WindowMaker-0.80.1-man-pages.tar.bz2
 Source21:	WindowMaker-Galaxy.style.bz2
 Source22:	WindowMaker-WMGLOBAL
-Source23:	WindowMaker-menu-xdg
+Source23:	WindowMaker
 
 # Matthias: NET_WM_NAME patch by Marcelo E. Magallon <mmagallo@debian.org>
 Patch0:		WindowMaker-0.91.0-NET_WM_NAME.patch.bz2
