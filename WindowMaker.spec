@@ -5,7 +5,7 @@
 
 %define	wmcalclock	wmCalClock-1.25
 %define version		0.92.0
-%define rel     	17
+%define rel     	18
 %define mdkrelease	%mkrel %rel
 %define _pixdir		%_datadir/pixmaps
 %define gnustepdir	%_prefix/GNUstep
@@ -245,8 +245,8 @@ install -m 755 %SOURCE10 %buildroot/%_bindir
 
 # Menu support
 
-install -d %{buildroot}/%{_menudir}
-install -m 755 %SOURCE23 %{buildroot}/%{_menudir}/%{name}
+install -d %{buildroot}/%{_sysconfdir}/menu.d
+install -m 755 %SOURCE23 %{buildroot}/%{_sysconfdir}/menu.d/%{name}
 
 # Icons
 mkdir -p $RPM_BUILD_ROOT{%_iconsdir,%_miconsdir,%_liconsdir}
@@ -306,7 +306,6 @@ rm -fr %buildroot
 
 %post
 %update_menus
-%{_libdir}/menu/WindowMaker
 %make_session
 
 %postun
@@ -324,7 +323,7 @@ rm -fr %buildroot
 
 %dir %_sysconfdir/X11/WindowMaker/
 %config(noreplace) %_sysconfdir/X11/WindowMaker/*
-%{_menudir}/%{name}
+%{_sysconfdir}/menu.d/%{name}
 %config(noreplace) %_sysconfdir/X11/wmsession.d/*
 
 %_bindir/*
