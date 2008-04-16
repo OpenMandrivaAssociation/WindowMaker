@@ -5,7 +5,7 @@
 
 %define	wmcalclock	wmCalClock-1.25
 %define version		0.92.0
-%define rel     	18
+%define rel     	19
 %define mdkrelease	%mkrel %rel
 %define _pixdir		%_datadir/pixmaps
 %define gnustepdir	%_prefix/GNUstep
@@ -59,6 +59,11 @@ Patch16:	181061-Remove-useless-timer.patch
 # This patch fixes a nasty bug switching virtual consoles when the
 # Composite extension is enabled but default depth is not 24
 Patch17:	WindowMaker-0.92.0-specify-visual-id-to-avoid-composite-corruption.patch
+
+# This patch works around a problem with broken symbolic links
+# See https://qa.mandriva.com/show_bug.cgi?id=39677#c5 for a better
+# description of the problem
+Patch18:	WPrefs-avoid-null-font.patch
 
 Requires:	gcc-cpp
 Requires:	desktop-common-data
@@ -188,6 +193,7 @@ This package contains static libraries needed for development.
 %patch15 -p1
 %patch16 -p1
 %patch17 -p1
+%patch18 -p1
 
 %build
 # protect the WPrefs.app location for unclean build envs with gnustep-make installed
