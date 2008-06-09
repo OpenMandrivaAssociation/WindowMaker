@@ -318,8 +318,12 @@ rm -fr %buildroot
 %clean_menus
 %make_session
 
+%if %mdkversion < 200900
 %post -n %{libwraster} -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %{libwraster} -p /sbin/ldconfig
+%endif
 
 
 %files -f %name.lang
