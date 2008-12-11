@@ -80,7 +80,7 @@ BuildRequires:	libhermes-devel libjpeg-devel
 BuildRequires:	libpng-devel libtiff-devel libungif-devel
 BuildRequires:	libxpm-devel mawk rpm-build
 BuildRequires:	libPropList-devel
-BuildRequires:  ImageMagick
+BuildRequires:  imagemagick
 
 %description
 Window Maker is a X11 window manager which emulates the look and feel of the
