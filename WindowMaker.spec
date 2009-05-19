@@ -65,6 +65,9 @@ Patch17:	WindowMaker-0.92.0-specify-visual-id-to-avoid-composite-corruption.patc
 # description of the problem
 Patch18:	WPrefs-avoid-null-font.patch
 
+# Fixes compilation with -Wformat=error
+Patch19:	WindowMaker-0.92.0-wformat-fixes.patch
+
 Requires:	gcc-cpp
 Requires:	desktop-common-data
 Requires:       mandriva-theme
@@ -194,6 +197,7 @@ This package contains static libraries needed for development.
 %patch16 -p1
 %patch17 -p1
 %patch18 -p1
+%patch19 -p0
 
 %build
 # protect the WPrefs.app location for unclean build envs with gnustep-make installed
@@ -203,6 +207,7 @@ autoconf
 
 LINGUAS="bg cs da de el es et fi fr gl hr hu it ja ko nl no pl pt ro ru sk sv tr zh_CN zh_TW"
 export LINGUAS
+%define _enable_libtoolize 1
 %configure2_5x --prefix=%_prefix \
 		--sysconfdir=%_sysconfdir/X11 \
 		--with-nlsdir=%_datadir/locale \
