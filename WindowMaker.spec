@@ -5,7 +5,7 @@
 
 %define	wmcalclock	wmCalClock-1.25
 %define version		0.92.0
-%define rel     	20
+%define rel     	21
 %define mdkrelease	%mkrel %rel
 %define _pixdir		%_datadir/pixmaps
 %define gnustepdir	%_prefix/GNUstep
@@ -68,6 +68,9 @@ Patch18:	WPrefs-avoid-null-font.patch
 # Fixes compilation with -Wformat=error
 Patch19:	WindowMaker-0.92.0-wformat-fixes.patch
 
+# patch from fedora to fix QT4 problem with menus...
+Patch20:	WindowMaker-0.92.0-cvs20060123.patch
+
 Requires:	gcc-cpp
 Requires:	desktop-common-data
 Requires:       mandriva-theme
@@ -76,7 +79,6 @@ Provides:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowM
 
 BuildRoot:	%_tmppath/%name-%version-%release-root
 
-BuildRequires:	automake1.4
 BuildRequires:	libxft-devel libxinerama-devel
 BuildRequires:	gcc-cpp
 BuildRequires:	libhermes-devel libjpeg-devel
@@ -197,12 +199,16 @@ This package contains static libraries needed for development.
 %patch16 -p1
 %patch17 -p1
 %patch18 -p1
-%patch19 -p0
+%patch19 -p0 -b .gcc43
+%patch20 -p1 -b .cvs
 
 %build
 # protect the WPrefs.app location for unclean build envs with gnustep-make installed
 unset GNUSTEP_LOCAL_ROOT
 
+libtoolize --copy --force --install
+aclocal
+automake -a -c
 autoconf
 
 LINGUAS="bg cs da de el es et fi fr gl hr hu it ja ko nl no pl pt ro ru sk sv tr zh_CN zh_TW"
