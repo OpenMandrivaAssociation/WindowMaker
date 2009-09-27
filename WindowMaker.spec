@@ -5,7 +5,7 @@
 
 %define	wmcalclock	wmCalClock-1.25
 %define version		0.92.0
-%define rel     	22
+%define rel     	23
 %define mdkrelease	%mkrel %rel
 %define _pixdir		%_datadir/pixmaps
 %define gnustepdir	%_prefix/GNUstep
@@ -202,14 +202,11 @@ This package contains static libraries needed for development.
 %patch19 -p0 -b .gcc43
 %patch20 -p1 -b .cvs
 
+autoreconf -fi
+
 %build
 # protect the WPrefs.app location for unclean build envs with gnustep-make installed
 unset GNUSTEP_LOCAL_ROOT
-
-libtoolize --copy --force --install
-aclocal
-automake -a -c
-autoconf
 
 LINGUAS="bg cs da de el es et fi fr gl hr hu it ja ko nl no pl pt ro ru sk sv tr zh_CN zh_TW"
 export LINGUAS
