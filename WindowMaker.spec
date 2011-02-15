@@ -5,7 +5,7 @@
 
 %define	wmcalclock	wmCalClock-1.25
 %define version		0.92.0
-%define rel     	23
+%define rel     	24
 %define mdkrelease	%mkrel %rel
 %define _pixdir		%_datadir/pixmaps
 %define gnustepdir	%_prefix/GNUstep
@@ -74,6 +74,7 @@ Patch20:	WindowMaker-0.92.0-cvs20060123.patch
 Requires:	gcc-cpp
 Requires:	desktop-common-data
 Requires:       mandriva-theme
+Requires:	xdg-compliance-menu
 Obsoletes:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 Provides:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 
