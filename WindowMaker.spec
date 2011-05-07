@@ -7,7 +7,6 @@
 %define version		0.92.0
 %define rel     	25
 %define mdkrelease	%mkrel %rel
-%define _pixdir		%_datadir/pixmaps
 %define gnustepdir	%_prefix/GNUstep
 
 %define wmmajor		0
@@ -71,7 +70,6 @@ Patch19:	WindowMaker-0.92.0-wformat-fixes.patch
 # patch from fedora to fix QT4 problem with menus...
 Patch20:	WindowMaker-0.92.0-cvs20060123.patch
 
-Requires:	gcc-cpp
 Requires:	desktop-common-data
 Requires:       mandriva-theme
 Requires:	xdg-compliance-menu
@@ -79,13 +77,16 @@ Obsoletes:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome Window
 Provides:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 
 BuildRoot:	%_tmppath/%name-%version-%release-root
-
-BuildRequires:	libxft-devel libxinerama-devel
-BuildRequires:	gcc-cpp
-BuildRequires:	libhermes-devel libjpeg-devel
-BuildRequires:	libpng-devel libtiff-devel libungif-devel
-BuildRequires:	libxpm-devel mawk rpm-build
-BuildRequires:	libPropList-devel
+BuildRequires:	libx11-devel
+BuildRequires:	libxext-devel
+BuildRequires:	libxft-devel
+BuildRequires:	libxinerama-devel
+BuildRequires:	libxpm-devel
+BuildRequires:	fontconfig-devel
+BuildRequires:	ungif-devel
+BuildRequires:	jpeg-devel
+BuildRequires:	png-devel
+BuildRequires:	tiff-devel
 BuildRequires:  imagemagick
 
 %description
@@ -216,7 +217,7 @@ export LINGUAS
 		--sysconfdir=%_sysconfdir/X11 \
 		--with-nlsdir=%_datadir/locale \
 		--enable-sound  \
-		--with-pixmapdir=%_pixdir \
+		--with-pixmapdir=%_datadir/pixmaps \
                 --with-gnustepdir=%gnustepdir \
 		--enable-xinerama \
 		--enable-usermenu \
@@ -235,8 +236,8 @@ popd
 if [ -d $RPM_BUILD_ROOT ]; then rm -rf $RPM_BUILD_ROOT; fi
 %makeinstall_std
 
-install -d 644 %buildroot/%_pixdir
-install -m 644 WindowMaker-data/pixmaps/* %buildroot/%_pixdir
+install -d 644 %buildroot/%_datadir/pixmaps
+install -m 644 WindowMaker-data/pixmaps/* %buildroot/%_datadir/pixmaps
 
 
 # Install wmCalClock (default clcok)
@@ -367,7 +368,7 @@ rm -fr %buildroot
 %_liconsdir/%name.png
 %_miconsdir/%name.png
 
-%_pixdir/*.png
+%_datadir/pixmaps/*.png
 
 
 %files -n %{libwraster}
@@ -386,11 +387,9 @@ rm -fr %buildroot
 %defattr(-,root,root,-)
 %_libdir/libwraster.a
 
-
 %files -n %{libnamedev}
 %defattr(-,root,root,-)
 %_includedir/WMaker.h
-
 %dir %_includedir/WINGs/
 %_includedir/WINGs/*.h
 %_libdir/pkgconfig/*.pc
