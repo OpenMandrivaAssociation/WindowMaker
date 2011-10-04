@@ -5,7 +5,7 @@
 
 %define	wmcalclock	wmCalClock-1.25
 %define version		0.92.0
-%define rel     	25
+%define rel     	26
 %define mdkrelease	%mkrel %rel
 %define gnustepdir	%_prefix/GNUstep
 
