@@ -205,6 +205,7 @@ This package contains static libraries needed for development.
 %patch18 -p1
 %patch19 -p0 -b .gcc43
 %patch20 -p1 -b .cvs
+%patch21 -p1
 
 autoreconf -fi
 
