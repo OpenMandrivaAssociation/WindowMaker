@@ -70,6 +70,8 @@ Patch19:	WindowMaker-0.92.0-wformat-fixes.patch
 # patch from fedora to fix QT4 problem with menus...
 Patch20:	WindowMaker-0.92.0-cvs20060123.patch
 
+Patch21:	WindowMaker-0.92.0-png1.5.patch
+
 Requires:	desktop-common-data
 Requires:       mandriva-theme
 Requires:	xdg-compliance-menu
