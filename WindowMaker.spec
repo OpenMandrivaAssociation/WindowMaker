@@ -236,7 +236,7 @@ popd
 
 
 %install
-if [ -d $RPM_BUILD_ROOT ]; then rm -rf $RPM_BUILD_ROOT; fi
+if [ -d %{buildroot} ]; then rm -rf %{buildroot}; fi
 %makeinstall_std
 
 install -d 644 %buildroot/%_datadir/pixmaps
@@ -268,21 +268,21 @@ install -d %{buildroot}/%{_sysconfdir}/menu.d
 install -m 755 %SOURCE23 %{buildroot}/%{_sysconfdir}/menu.d/%{name}
 
 # Icons
-mkdir -p $RPM_BUILD_ROOT{%_iconsdir,%_miconsdir,%_liconsdir}
-convert -geometry 48x48 %name/Icons/GNUstepGlow.tiff $RPM_BUILD_ROOT%{_liconsdir}/%name.png
-convert -geometry 32x32 %name/Icons/GNUstepGlow.tiff $RPM_BUILD_ROOT%{_iconsdir}/%name.png
-convert -geometry 16x16 %name/Icons/GNUstepGlow.tiff $RPM_BUILD_ROOT%{_miconsdir}/%name.png
+mkdir -p %{buildroot}{%_iconsdir,%_miconsdir,%_liconsdir}
+convert -geometry 48x48 %name/Icons/GNUstepGlow.tiff %{buildroot}%{_liconsdir}/%name.png
+convert -geometry 32x32 %name/Icons/GNUstepGlow.tiff %{buildroot}%{_iconsdir}/%name.png
+convert -geometry 16x16 %name/Icons/GNUstepGlow.tiff %{buildroot}%{_miconsdir}/%name.png
 
 # Some documentation for WMCalClock
-install -d 755 $RPM_BUILD_ROOT%_docdir/%{wmcalclock}
-install -m 644 %{wmcalclock}/BUGS $RPM_BUILD_ROOT%_docdir/%{wmcalclock}
-install -m 644 %{wmcalclock}/CHANGES $RPM_BUILD_ROOT%_docdir/%{wmcalclock}
-install -m 644 %{wmcalclock}/COPYING $RPM_BUILD_ROOT%_docdir/%{wmcalclock}
-install -m 644 %{wmcalclock}/HINTS $RPM_BUILD_ROOT%_docdir/%{wmcalclock}
-install -m 644 %{wmcalclock}/README $RPM_BUILD_ROOT%_docdir/%{wmcalclock}
-install -m 644 %{wmcalclock}/TODO $RPM_BUILD_ROOT%_docdir/%{wmcalclock}
+install -d 755 %{buildroot}%_docdir/%{wmcalclock}
+install -m 644 %{wmcalclock}/BUGS %{buildroot}%_docdir/%{wmcalclock}
+install -m 644 %{wmcalclock}/CHANGES %{buildroot}%_docdir/%{wmcalclock}
+install -m 644 %{wmcalclock}/COPYING %{buildroot}%_docdir/%{wmcalclock}
+install -m 644 %{wmcalclock}/HINTS %{buildroot}%_docdir/%{wmcalclock}
+install -m 644 %{wmcalclock}/README %{buildroot}%_docdir/%{wmcalclock}
+install -m 644 %{wmcalclock}/TODO %{buildroot}%_docdir/%{wmcalclock}
 
-install -m 644 *.1x $RPM_BUILD_ROOT/%_mandir/man1/
+install -m 644 *.1x %{buildroot}/%_mandir/man1/
 
 
 # Dadou - 0.62.1-18mdk - Make auto-login happy
