@@ -16,7 +16,7 @@
 Summary:	A window manager for the X Window System
 Name:		WindowMaker
 Version:	0.95.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/WindowMaker
 URL:		http://www.windowmaker.info/
