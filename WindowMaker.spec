@@ -61,6 +61,7 @@ BuildRequires:	libxext-devel
 BuildRequires:	libxft-devel
 BuildRequires:	libxinerama-devel
 BuildRequires:	libxpm-devel
+BuildRequires:	libxmu-devel
 BuildRequires:	fontconfig-devel
 BuildRequires:	ungif-devel
 BuildRequires:	jpeg-devel
