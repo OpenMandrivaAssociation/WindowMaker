@@ -10,13 +10,12 @@
 %define libWINGs_devel		%mklibname WINGs -d
 %define libWINGs_static_devel	%mklibname WINGs -d -s
 
-%define	wmcalclock		wmCalClock-1.25
 %define gnustepdir		%{_prefix}/GNUstep
 
 Summary:	A window manager for the X Window System
 Name:		WindowMaker
 Version:	0.95.0
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/WindowMaker
 URL:		http://www.windowmaker.info/
@@ -26,7 +25,6 @@ URL:		http://www.windowmaker.info/
 # git archive --prefix WindowMaker-0.95.0/ wmaker-0.95.0-crm | bzip2 > WindowMaker-0.95.0.tar.bz2
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	WindowMaker-data.tar.bz2
-Source2:	WindowMaker-%{wmcalclock}.tar.bz2
 Source4:	WindowMaker-menumethod
 Source6:	WindowMaker-WindowMaker
 Source7:	WindowMaker-WMWindowAttributes
@@ -82,8 +80,6 @@ a workspace dock, a 'clip' which extends the application dock's usefulness.
 
 %files -f WindowMaker.lang
 %doc AUTHORS BUGFORM BUGS ChangeLog COPYING.WTFPL FAQ FAQ.I18N NEWS README* TODO
-%doc %{_docdir}/%{wmcalclock}
-
 %dir %{_sysconfdir}/X11/WindowMaker/
 %config(noreplace) %{_sysconfdir}/X11/WindowMaker/*
 %{_sysconfdir}/menu.d/WindowMaker
@@ -223,7 +219,7 @@ This package allows building applications using the libWINGs library.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -q -a 1 -a 2 -a 20
+%setup -q -a 1 -a 20
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -253,24 +249,12 @@ export LINGUAS
 
 make
 
-## wmCalClock (default clock)
-pushd wmCalClock-1.25/Src
-make
-popd
-
 #-----------------------------------------------------------------------
 %install
 %makeinstall_std
 
 install -d 644 %{buildroot}/%{_datadir}/pixmaps
 install -m 644 WindowMaker-data/pixmaps/* %{buildroot}/%{_datadir}/pixmaps
-
-
-# Install wmCalClock (default clock)
-pushd wmCalClock-1.25/Src
-install -s -m 0755 wmCalClock %{buildroot}/%{_bindir}
-install -m 0644 wmCalClock.1 %{buildroot}/%{_mandir}/man1/
-popd
 
 # Config files: Auto installation
 install -m 755 %{SOURCE8} %{buildroot}/%{_bindir}/startwindowmaker
@@ -295,15 +279,6 @@ mkdir -p %{buildroot}{%{_iconsdir},%{_miconsdir},%{_liconsdir}}
 convert -geometry 48x48 %{name}/Icons/GNUstepGlow.tiff %{buildroot}%{_liconsdir}/%{name}.png
 convert -geometry 32x32 %{name}/Icons/GNUstepGlow.tiff %{buildroot}%{_iconsdir}/%{name}.png
 convert -geometry 16x16 %{name}/Icons/GNUstepGlow.tiff %{buildroot}%{_miconsdir}/%{name}.png
-
-# Some documentation for WMCalClock
-install -d 755 %{buildroot}%{_docdir}/%{wmcalclock}
-install -m 644 %{wmcalclock}/BUGS %{buildroot}%{_docdir}/%{wmcalclock}
-install -m 644 %{wmcalclock}/CHANGES %{buildroot}%{_docdir}/%{wmcalclock}
-install -m 644 %{wmcalclock}/COPYING %{buildroot}%{_docdir}/%{wmcalclock}
-install -m 644 %{wmcalclock}/HINTS %{buildroot}%{_docdir}/%{wmcalclock}
-install -m 644 %{wmcalclock}/README %{buildroot}%{_docdir}/%{wmcalclock}
-install -m 644 %{wmcalclock}/TODO %{buildroot}%{_docdir}/%{wmcalclock}
 
 install -m 644 *.1x %{buildroot}/%{_mandir}/man1/
 
