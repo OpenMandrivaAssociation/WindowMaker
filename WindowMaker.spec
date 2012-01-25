@@ -94,9 +94,6 @@ a workspace dock, a 'clip' which extends the application dock's usefulness.
 %lang(cs) %doc %{_mandir}/cs/man1/*
 %lang(sk) %doc %{_mandir}/sk/man1/*
 %lang(ru) %doc %{_mandir}/ru/man1/*
-#lang(de) %doc %{_localedir}/de/LC_MESSAGES/*
-#lang(es) %doc %{_localedir}/es/LC_MESSAGES/*
-#lang(fr) %doc %{_localedir}/fr/LC_MESSAGES/*
 
 %{_datadir}/WindowMaker
 
@@ -143,7 +140,6 @@ This package allows building applications using the libwraster library.
 %files		-n %{libwraster_devel}
 %{_includedir}/wraster.h
 %{_libdir}/libwraster.so
-%{_libdir}/libwraster.la
 %{_libdir}/pkgconfig/wrlib.pc
 
 #-----------------------------------------------------------------------
@@ -198,9 +194,7 @@ This package allows building applications using the libWINGs library.
 %files		-n %{libWINGs_devel}
 %{_includedir}/WINGs
 %{_libdir}/pkgconfig/WINGs.pc
-%{_libdir}/libWINGs.la
 %{_libdir}/libWINGs.so
-%{_libdir}/libWUtil.la
 %{_libdir}/libWUtil.so
 
 #-----------------------------------------------------------------------
@@ -253,6 +247,7 @@ make
 #-----------------------------------------------------------------------
 %install
 %makeinstall_std
+find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 
 install -d 644 %{buildroot}/%{_datadir}/pixmaps
 install -m 644 WindowMaker-data/pixmaps/* %{buildroot}/%{_datadir}/pixmaps
