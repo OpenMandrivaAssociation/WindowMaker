@@ -94,9 +94,9 @@ a workspace dock, a 'clip' which extends the application dock's usefulness.
 %lang(cs) %doc %{_mandir}/cs/man1/*
 %lang(sk) %doc %{_mandir}/sk/man1/*
 %lang(ru) %doc %{_mandir}/ru/man1/*
-%lang(de) %doc %{_localedir}/de/LC_MESSAGES/*
-%lang(es) %doc %{_localedir}/es/LC_MESSAGES/*
-%lang(fr) %doc %{_localedir}/fr/LC_MESSAGES/*
+#lang(de) %doc %{_localedir}/de/LC_MESSAGES/*
+#lang(es) %doc %{_localedir}/es/LC_MESSAGES/*
+#lang(fr) %doc %{_localedir}/fr/LC_MESSAGES/*
 
 %{_datadir}/WindowMaker
 
