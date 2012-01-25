@@ -301,5 +301,7 @@ install -D %{SOURCE24} %{buildroot}/%{_sysconfdir}/X11/wmsession.d/03WindowMaker
 %find_lang WPrefs
 %find_lang WindowMaker
 %find_lang WINGs
+%find_lang wmgenmenu
 cat WPrefs.lang >> WindowMaker.lang
 cat WINGs.lang >> WindowMaker.lang
+cat wmgenmenu.lang >> WindowMaker.lang
