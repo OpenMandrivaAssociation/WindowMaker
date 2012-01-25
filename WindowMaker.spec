@@ -48,8 +48,9 @@ Patch1:		WindowMaker-0.95.0-applications-menu.patch
 Patch2:		WindowMaker-0.95.0-qt_popup.patch
 
 Requires:	desktop-common-data
-Requires:       mandriva-theme
+Requires:	mandriva-theme
 Requires:	xdg-compliance-menu
+Requires:	wmcalclock
 Obsoletes:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 Provides:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 
