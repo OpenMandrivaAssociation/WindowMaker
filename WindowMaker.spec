@@ -14,16 +14,12 @@
 
 Summary:	A window manager for the X Window System
 Name:		WindowMaker
-Version:	0.95.0
-Release:	3
+Version:	0.95.2
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/WindowMaker
 URL:		http://www.windowmaker.info/
-
-# git clone git://repo.or.cz/wmaker-crm.git
-# cd wmaker-crm
-# git archive --prefix WindowMaker-0.95.0/ wmaker-0.95.0-crm | bzip2 > WindowMaker-0.95.0.tar.bz2
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	http://windowmaker.org/pub/source/release/%{name}-%{version}.tar.gz
 Source1:	WindowMaker-data.tar.bz2
 Source4:	WindowMaker-menumethod
 Source6:	WindowMaker-WindowMaker
@@ -47,6 +43,12 @@ Patch1:		WindowMaker-0.95.0-applications-menu.patch
 # correct focus not set on some qt windows, usually "About Qt"
 Patch2:		WindowMaker-0.95.0-qt_popup.patch
 
+# Mageia patches
+Patch3:		windowmaker-0.95.2-mga-fix-paths-in-german-plmenu.patch
+Patch4:		windowmaker-0.95.2-mga-stop-using-old-X11R6-directory.patch
+Patch5:		windowmaker-0.95.2-mga-patch-WMState-to-use-old-Mageia-configuration.patch
+Patch6:		wmaker-0.94.0-net_wm_moveresize.patch
+
 Requires:	desktop-common-data
 Requires:	mandriva-theme
 Requires:	xdg-compliance-menu
@@ -66,7 +68,7 @@ BuildRequires:	ungif-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	png-devel
 BuildRequires:	tiff-devel
-BuildRequires:  imagemagick
+BuildRequires:	imagemagick
 
 %description
 Window Maker is a X11 window manager which emulates the look and feel of the
@@ -218,6 +220,10 @@ This package allows building applications using the libWINGs library.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
 
 %if %{snapshot}
 sh ./autogen.sh
