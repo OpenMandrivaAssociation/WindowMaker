@@ -1,0 +1,43 @@
+From 38d92ec5c991105c528c0718f0c56532ea855d5c Mon Sep 17 00:00:00 2001
+From: Kamil Rytarowski <n54@gmx.com>
+Date: Sat, 18 Feb 2012 08:32:08 +0100
+Subject: [PATCH] Patch WMState to use old Mageia configuration
+
+Use xvt instead of xterm and add wmcalclock to the desktop.
+---
+ WindowMaker/Defaults/WMState.in |   12 +++++++++++-
+ 1 files changed, 11 insertions(+), 1 deletions(-)
+
+diff --git a/WindowMaker/Defaults/WMState.in b/WindowMaker/Defaults/WMState.in
+index bdcef36..261f4e9 100644
+--- a/WindowMaker/Defaults/WMState.in
++++ b/WindowMaker/Defaults/WMState.in
+@@ -10,7 +10,7 @@
+         DropCommand = "wmsetbg -u -t %d";
+       },
+       {
+-	Command = xterm;
++	Command = xvt;
+ 	Name = xterm.XTerm;
+ 	AutoLaunch = No;
+ 	Forced = No;
+@@ -23,6 +23,16 @@
+ 	Forced = No;
+ 	Position = "0,2";
+ 	Lock = Yes;
++      },
++      {
++        Command = "wmcalclock -b 100 -24 -tc #001100 -bc #7e9e69";
++        Name = "wmcalclock.wmcalclock";
++        AutoLaunch = Yes;
++        Lock = No;
++        Forced = No;
++        BuggyApplication = No;
++        Position = "0,3";
++        DropCommand = "wmcalclock -b 100 -24 -tc #001100 -bc #7e9e69 %d";
+       }
+     );
+     Position = "-64,0";
+-- 
+1.7.9.1
+

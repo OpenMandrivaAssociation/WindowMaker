@@ -1,0 +1,20 @@
+--- WindowMaker-0.95.0/src/wmspec.c.orig	2011-12-01 13:48:32.120084575 -0200
++++ WindowMaker-0.95.0/src/wmspec.c	2011-12-01 13:48:57.839083507 -0200
+@@ -235,6 +235,7 @@ typedef struct NetData {
+ static void setSupportedHints(WScreen * scr)
+ {
+ 	Atom atom[atomNr];
++	char * my_name = "Window Maker";
+ 	int i = 0;
+ 
+ 	/* set supported hints list */
+@@ -305,6 +306,9 @@ static void setSupportedHints(WScreen *
+ 
+ 	XChangeProperty(dpy, scr->info_window, net_supporting_wm_check, XA_WINDOW,
+ 			32, PropModeReplace, (unsigned char *)&scr->info_window, 1);
++
++	XChangeProperty(dpy, scr->info_window, net_wm_name, utf8_string,
++			8, PropModeReplace, my_name, strlen(my_name));
+ }
+ 
+ void wNETWMUpdateDesktop(WScreen * scr)

@@ -1,0 +1,343 @@
+From 1eec87ce73347d5d4552973da20c0cba46d232d2 Mon Sep 17 00:00:00 2001
+From: Kamil Rytarowski <n54@gmx.com>
+Date: Fri, 17 Feb 2012 05:35:12 +0100
+Subject: [PATCH] Stop using old /usr/X11R6 directory, it's replaced in
+ xorg-x11 by standard /usr
+
+Switch from /usr/X11R6 to /usr in all files except debian and FAQ.
+---
+ WPrefs.app/Menu.c                   |    2 +-
+ WPrefs.app/po/bg.po                 |    4 ++--
+ WPrefs.app/po/ca.po                 |    4 ++--
+ WPrefs.app/po/cs.po                 |    4 ++--
+ WPrefs.app/po/de.po                 |    4 ++--
+ WPrefs.app/po/es.po                 |    4 ++--
+ WPrefs.app/po/fi.po                 |    4 ++--
+ WPrefs.app/po/fr.po                 |    2 +-
+ WPrefs.app/po/it.po                 |    4 ++--
+ WPrefs.app/po/ja.po                 |    4 ++--
+ WPrefs.app/po/ru.po                 |    4 ++--
+ WPrefs.app/po/sk.po                 |    4 ++--
+ WPrefs.app/po/zh_TW.po              |    4 ++--
+ WindowMaker/Defaults/WindowMaker.in |    4 ++--
+ WindowMaker/menu.hu                 |    2 +-
+ WindowMaker/plmenu.it               |    8 ++++----
+ 16 files changed, 31 insertions(+), 31 deletions(-)
+
+diff --git a/WPrefs.app/Menu.c b/WPrefs.app/Menu.c
+index 6784c47..342e7f0 100644
+--- a/WPrefs.app/Menu.c
++++ b/WPrefs.app/Menu.c
+@@ -615,7 +615,7 @@ static void createPanel(_Panel * p)
+ 	WMSetLabelText(label, _("Enter the path for a file containing a menu\n"
+ 				"or a list of directories with the programs you\n"
+ 				"want to have listed in the menu. Ex:\n"
+-				"~/GNUstep/Library/WindowMaker/menu\n" "or\n" "/usr/X11R6/bin ~/xbin"));
++				"~/GNUstep/Library/WindowMaker/menu\n" "or\n" "/usr/bin ~/xbin"));
+ 
+ 	WMMapSubwidgets(panel->pathF);
+ 
+diff --git a/WPrefs.app/po/bg.po b/WPrefs.app/po/bg.po
+index 9e3f4d3..d73d346 100644
+--- a/WPrefs.app/po/bg.po
++++ b/WPrefs.app/po/bg.po
+@@ -1305,13 +1305,13 @@ msgid ""
+ "want to have listed in the menu. Ex:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "or\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ msgstr ""
+ "Въведете пътя на файл, съдържащ меню или\n"
+ "списък от директории с програмите, които\n"
+ "желаете да бъдат включени в менюто. Напр.:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+-"или /usr/X11R6/bin ~/xbin"
++"или /usr/bin ~/xbin"
+ 
+ # ../../WPrefs.app/Menu.c:1186
+ #: ../../WPrefs.app/Menu.c:736
+diff --git a/WPrefs.app/po/ca.po b/WPrefs.app/po/ca.po
+index b6782d2..2c250ab 100644
+--- a/WPrefs.app/po/ca.po
++++ b/WPrefs.app/po/ca.po
+@@ -1147,13 +1147,13 @@ msgid ""
+ "want to have listed in the menu. Ex:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "or\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ msgstr ""
+ "Entreu l'ubicació d'un fitxer que contingui el menú, o\n"
+ "una llista de directoris amb els programes que voleu\n"
+ "que apareguin al menú. Per exemple:\n"
+ "~/GNUstep/Library/WindowMaker/menu, o\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ 
+ #: ../../WPrefs.app/Menu.c:736
+ msgid "Command"
+diff --git a/WPrefs.app/po/cs.po b/WPrefs.app/po/cs.po
+index 2e5d75b..4e15214 100644
+--- a/WPrefs.app/po/cs.po
++++ b/WPrefs.app/po/cs.po
+@@ -1025,14 +1025,14 @@ msgid ""
+ "want to have listed in the menu. Ex:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "or\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ msgstr ""
+ "Vlož cestu pro soubor obsahující menu\n"
+ "nebo seznam adresářů s programy, které\n"
+ "chete zobrazit v menu. Př:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "nebo\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ 
+ #: ../Menu.c:696
+ msgid "Command"
+diff --git a/WPrefs.app/po/de.po b/WPrefs.app/po/de.po
+index 73b66fa..b211bc1 100644
+--- a/WPrefs.app/po/de.po
++++ b/WPrefs.app/po/de.po
+@@ -1028,14 +1028,14 @@ msgid ""
+ "want to have listed in the menu. Ex:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "or\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ msgstr ""
+ "Geben Sie den Pfad einer Datei, die ein Menü\n"
+ "enthält, oder eine Liste von Verzeichnissen\n"
+ "mit den gewüschten Anwendungen ein. Bespiel:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "oder\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ 
+ #: ../../WPrefs.app/Menu.c:679
+ msgid "Command"
+diff --git a/WPrefs.app/po/es.po b/WPrefs.app/po/es.po
+index 3f80fc9..59a6991 100644
+--- a/WPrefs.app/po/es.po
++++ b/WPrefs.app/po/es.po
+@@ -1054,13 +1054,13 @@ msgid ""
+ "want to have listed in the menu. Ex:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "or\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ msgstr ""
+ "Introduzca el path de un archivo que contenga\n"
+ "un menú o una lista de directorios con los\n"
+ "programas que quiere listados en el menú.\n"
+ "Ej: ~/GNUstep/Library/WindowMaker/menu o \n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ 
+ #: ../../WPrefs.app/Menu.c:736
+ msgid "Command"
+diff --git a/WPrefs.app/po/fi.po b/WPrefs.app/po/fi.po
+index cf11194..de297ff 100644
+--- a/WPrefs.app/po/fi.po
++++ b/WPrefs.app/po/fi.po
+@@ -1228,14 +1228,14 @@ msgid ""
+ "want to have listed in the menu. Ex:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "or\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ msgstr ""
+ "Syötä valikon sisältävän tiedoston polku\n"
+ "tai ne hakemistot, jotka sisältävät ohjelmat,\n"
+ "jotka haluat mukaan valikkoon. Esim.\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "tai\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ 
+ #: ../../WPrefs.app/Menu.c:696
+ msgid "Command"
+diff --git a/WPrefs.app/po/fr.po b/WPrefs.app/po/fr.po
+index 5478166..0727382 100644
+--- a/WPrefs.app/po/fr.po
++++ b/WPrefs.app/po/fr.po
+@@ -1150,7 +1150,7 @@ msgid ""
+ "want to have listed in the menu. Ex:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "or\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ msgstr ""
+ "Indiquez l'emplacement d'un fichier décrivant un\n"
+ "menu ou une liste de répertoires contenant les\n"
+diff --git a/WPrefs.app/po/it.po b/WPrefs.app/po/it.po
+index 8d2fcec..99217d9 100644
+--- a/WPrefs.app/po/it.po
++++ b/WPrefs.app/po/it.po
+@@ -1260,14 +1260,14 @@ msgid ""
+ "want to have listed in the menu. Ex:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "or\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ msgstr ""
+ "Scrivere il percorso di un file contenente un\n"
+ "menù o una lista di directory con i programmi\n"
+ "che si vogliono nel menù. Ad esempio:\n"
+ "~/GNUstep/Library/WindowMaker/menu.it\n"
+ "oppure\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ 
+ #: ../../WPrefs.app/Menu.c:696
+ msgid "Command"
+diff --git a/WPrefs.app/po/ja.po b/WPrefs.app/po/ja.po
+index c45258e..296b6f1 100644
+--- a/WPrefs.app/po/ja.po
++++ b/WPrefs.app/po/ja.po
+@@ -1037,14 +1037,14 @@ msgid ""
+ "want to have listed in the menu. Ex:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "or\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ msgstr ""
+ "メニューを含むファイルへのパス, ないしは \n"
+ "メニューに表示してほしいプログラムのある \n"
+ "ディレクトリ. 例:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "とか, \n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ 
+ #: ../../WPrefs.app/Menu.c:736
+ msgid "Command"
+diff --git a/WPrefs.app/po/ru.po b/WPrefs.app/po/ru.po
+index 1cf1fba..44c6055 100644
+--- a/WPrefs.app/po/ru.po
++++ b/WPrefs.app/po/ru.po
+@@ -1115,14 +1115,14 @@ msgid ""
+ "want to have listed in the menu. Ex:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "or\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ msgstr ""
+ "Введите путь к файлу, содержащему меню,\n"
+ "или список с программами, которые вы хотите\n"
+ "видеть перечисленными в меню,  Например:\n"
+ "    ~/GNUstep/Library/WindowMaker/menu\n"
+ "или\n"
+-"    /usr/X11R6/bin ~/xbin"
++"    /usr/bin ~/xbin"
+ 
+ #: ../../WPrefs.app/Menu.c:736
+ msgid "Command"
+diff --git a/WPrefs.app/po/sk.po b/WPrefs.app/po/sk.po
+index 49a9e62..11fb31c 100644
+--- a/WPrefs.app/po/sk.po
++++ b/WPrefs.app/po/sk.po
+@@ -1046,14 +1046,14 @@ msgid ""
+ "want to have listed in the menu. Ex:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "or\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ msgstr ""
+ "Zadajte cestu k súboru, ktorý obsahuje menu\n"
+ "alebo zoznam adresárov s programami, ktoré chcete\n"
+ "mať zaradené do menu. Napr.\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "alebo\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ 
+ #: ../../WPrefs.app/Menu.c:696
+ msgid "Command"
+diff --git a/WPrefs.app/po/zh_TW.po b/WPrefs.app/po/zh_TW.po
+index e1b7fee..0ee23ab 100644
+--- a/WPrefs.app/po/zh_TW.po
++++ b/WPrefs.app/po/zh_TW.po
+@@ -999,13 +999,13 @@ msgid ""
+ "want to have listed in the menu. Ex:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "or\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ msgstr ""
+ "輸入含有選單的檔案或你要列在選單的程式目錄清單\n"
+ "的路徑。例如:\n"
+ "~/GNUstep/Library/WindowMaker/menu\n"
+ "或\n"
+-"/usr/X11R6/bin ~/xbin"
++"/usr/bin ~/xbin"
+ 
+ #: ../../WPrefs.app/Menu.c:736
+ msgid "Command"
+diff --git a/WindowMaker/Defaults/WindowMaker.in b/WindowMaker/Defaults/WindowMaker.in
+index 1323b0d..6b2890d 100644
+--- a/WindowMaker/Defaults/WindowMaker.in
++++ b/WindowMaker/Defaults/WindowMaker.in
+@@ -12,7 +12,7 @@
+     "~/GNUstep/Library/Icons",
+     "#pkgdatadir#/Icons",
+     "#pkgdatadir#/Pixmaps",
+-    "/usr/X11R6/include/X11/pixmaps",
++    "/usr/include/X11/pixmaps",
+     "~/GNUstep/Library/WindowMaker/Pixmaps",
+     "/usr/share/icons",
+     "/usr/local/share/pixmaps",
+@@ -23,7 +23,7 @@
+     "~/GNUstep/Library/WindowMaker/Backgrounds",
+     "#pkgdatadir#/Pixmaps",
+     "#pkgdatadir#/Backgrounds",
+-    "/usr/X11R6/include/X11/pixmaps",
++    "/usr/include/X11/pixmaps",
+     "/usr/local/share/pixmaps",
+     "/usr/share/pixmaps"
+   );
+diff --git a/WindowMaker/menu.hu b/WindowMaker/menu.hu
+index 741b397..37f4ce4 100644
+--- a/WindowMaker/menu.hu
++++ b/WindowMaker/menu.hu
+@@ -204,7 +204,7 @@
+ 		"Háttér" END
+ 		"Téma mentése" SHEXEC getstyle -t $HOME/GNUstep/Library/WindowMaker/Themes/"%a(Téma neve,Add meg a téma fájl nevét:)"
+ 		"Ikonbeállítások mentése" SHEXEC geticonset $HOME/GNUstep/Library/WindowMaker/IconSets/"%a(Ikonbeállítások mentése,Add meg a fájl nevét:)"
+-		"Konfiguráló program" EXEC /usr/X11R6/bin/WPrefs
++		"Konfiguráló program" EXEC /usr/bin/WPrefs
+ 	"Megjelenés" END
+ 
+ 	"Kilépés"	MENU
+diff --git a/WindowMaker/plmenu.it b/WindowMaker/plmenu.it
+index c8ded29..151c6a6 100644
+--- a/WindowMaker/plmenu.it
++++ b/WindowMaker/plmenu.it
+@@ -66,9 +66,9 @@
+   ("Cancella Sessione salvata", CLEAR_SESSION)
+   ),
+  ("Visualizzazione",
+-  ("Temi", OPEN_MENU, "-noext /usr/X11R6/share/WindowMaker/Themes ~/GNUstep/Library/WindowMaker/Themes WITH setstyle"),
+-  ("Stili", OPEN_MENU, "-noext /usr/X11R6/share/WindowMaker/Styles ~/GNUstep/Library/WindowMaker/Styles WITH setstyle"),
+-  ("Set di Icone", OPEN_MENU, "-noext /usr/X11R6/share/WindowMaker/IconSets ~/GNUstep/Library/WindowMaker/IconSets WITH seticons"),
++  ("Temi", OPEN_MENU, "-noext /usr/share/WindowMaker/Themes ~/GNUstep/Library/WindowMaker/Themes WITH setstyle"),
++  ("Stili", OPEN_MENU, "-noext /usr/share/WindowMaker/Styles ~/GNUstep/Library/WindowMaker/Styles WITH setstyle"),
++  ("Set di Icone", OPEN_MENU, "-noext /usr/share/WindowMaker/IconSets ~/GNUstep/Library/WindowMaker/IconSets WITH seticons"),
+   ("Sfondo",
+    ("Tinta unita",
+     ("Nero", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, black)'"),
+@@ -90,7 +90,7 @@
+     ("Sfumature Grigie",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#636380\", \"#131318\")'"),
+     ("Sfumature Vinaccia",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#600040\", \"#180010\")'")
+     ),
+-   ("Immagini", OPEN_MENU, "-noext /usr/X11R6/share/WindowMaker/Backgrounds ~/GNUstep/Library/WindowMaker/Backgrounds WITH wmsetbg -u -t")
++   ("Immagini", OPEN_MENU, "-noext /usr/share/WindowMaker/Backgrounds ~/GNUstep/Library/WindowMaker/Backgrounds WITH wmsetbg -u -t")
+    ),   
+   ("Salva il tema", EXEC, "getstyle -t ~/GNUstep/Library/WindowMaker/Themes/\"%a(Nome Tema)\""),
+   ("Salva il set icone", EXEC, "geticonset ~/GNUstep/Library/WindowMaker/IconSets/\"%a(Nome IconSet)\"")
+-- 
+1.7.9.1
+

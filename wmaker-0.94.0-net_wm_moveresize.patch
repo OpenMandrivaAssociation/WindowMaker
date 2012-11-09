@@ -1,0 +1,23 @@
+--- wmaker-crm.bak/src/wmspec.c	2011-04-18 22:25:44.000000000 +0200
++++ wmaker-crm/src/wmspec.c	2011-07-09 03:03:40.105674683 +0200
+@@ -250,9 +250,7 @@
+ 	atom[i++] = net_active_window;
+ 	atom[i++] = net_supporting_wm_check;
+ 	atom[i++] = net_showing_desktop;
+-#if 0
+ 	atom[i++] = net_wm_moveresize;
+-#endif
+ 	atom[i++] = net_wm_desktop;
+ 	atom[i++] = net_wm_window_type;
+ 	atom[i++] = net_wm_window_type_desktop;
+@@ -1450,6 +1448,10 @@
+ 				wWindowSetOmnipresent(wwin, False);
+ 			wWindowChangeWorkspace(wwin, desktop);
+ 		}
++	} else if (event->message_type == net_wm_moveresize) {
++		/* TODO, but accept it anyway */
++		
++		XUngrabPointer(dpy, CurrentTime);
+ 	} else {
+ 		done = False;
+ 	}

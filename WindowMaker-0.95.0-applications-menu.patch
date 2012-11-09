@@ -1,0 +1,385 @@
+--- WindowMaker-0.95.0/WindowMaker/menu.de.orig	2011-12-01 14:15:18.293083782 -0200
++++ WindowMaker-0.95.0/WindowMaker/menu.de	2011-12-01 14:16:04.948083736 -0200
+@@ -49,36 +49,8 @@
+ 		"Anleitungen" EXEC xman
+ 	"Info" END
+ 	"XTerm" SHEXEC xterm -sb || color-xterm -sb || xterm -sb
+-	"XJed"	EXEC xjed
+ 	"Arbeitsfläche" WORKSPACE_MENU
+-	"Anwendungen" MENU
+-		"Grafik" MENU
+-			"Gimp" EXEC gimp
+-			"XV" EXEC xv
+-			"XPaint" EXEC xpaint
+-			"XFig" EXEC xfig
+-		"Grafik" END
+-		"X Dateimanager" EXEC xfm
+-		"OffiX Files" EXEC files
+-		"LyX" EXEC lyx
+-		"Netscape" EXEC netscape
+-               	"Ghostview" EXEC ghostview %a(Ghostview)
+-                "XDvi" EXEC xdvi %a(XDvi)
+-               	"Acrobat" EXEC /usr/local/Acrobat3/bin/acroread %a(Acrobat)
+-  		"TkDesk" EXEC tkdesk
+-	"Anwendungen" END
+-	"Editoren" MENU
+-		"XEmacs" SHEXEC xemacs || emacs
+-		"XJed" EXEC xjed
+-		"NEdit" EXEC nedit
+-		"Xedit" EXEC xedit
+-		"VI" EXEC xterm -e vi
+-	"Editoren" END
+-	"Sonstiges" MENU
+-		"Xmcd" SHEXEC xmcd 2> /dev/null
+-		"Xplaycd" EXEC xplaycd
+-		"Xmixer" EXEC xmixer
+-	"Sonstiges" END
++	"Anwendungen" OPEN_MENU /usr/share/WindowMaker/menu.xdg
+ 	"Hilfsmittel" MENU
+ 		"Taschenrechner" EXEC xcalc
+ 		"Schriftauswahl" EXEC xfontsel
+--- WindowMaker-0.95.0/WindowMaker/menu.fr.orig	2011-12-01 14:16:09.853083681 -0200
++++ WindowMaker-0.95.0/WindowMaker/menu.fr	2011-12-01 14:16:45.173083813 -0200
+@@ -163,34 +163,7 @@
+ 	"Terminal X" EXEC xterm -sb
+ 	"Rxvt" EXEC rxvt -bg black -fg white -fn fixed
+ 	"Bureaux" WORKSPACE_MENU
+-	"Applications" MENU
+-		"Graphismes" MENU
+-			"Gimp" SHEXEC gimp >/dev/null
+-			"XV" EXEC xv
+-			"XPaint" EXEC xpaint
+-			"XFig" EXEC xfig
+-		"Graphismes" END
+-		"Xfm" EXEC xfm
+-		"OffiX Files" EXEC files
+-		"LyX" EXEC lyx
+-		"Netscape" EXEC netscape
+-		"Ghostview" EXEC ghostview %a(Entrez un fichier)
+-		"Acrobat" EXEC /usr/local/Acrobat3/bin/acroread %a(Acrobat,Entrez un fichier PDF)
+-		"TkDesk" EXEC tkdesk
+-	"Applications" END
+-	"Editeurs" MENU
+-		"XFte" EXEC xfte
+-		"XEmacs" SHEXEC xemacs || emacs
+-		"XJed" EXEC xjed
+-		"NEdit" EXEC nedit
+-		"Xedit" EXEC xedit
+-		"VI" EXEC xterm -e vi
+-	"Editeurs" END
+-	"Divers" MENU
+-		"Xmcd" SHEXEC xmcd 2> /dev/null
+-		"Xplaycd" EXEC xplaycd
+-		"Xmixer" EXEC xmixer
+-	"Divers" END
++	"Applications" OPEN_MENU /usr/share/WindowMaker/menu.xdg
+ 	"Utilitaires" MENU
+ 		"Calculatrice" EXEC xcalc
+ 		"Propriétés de la fenêtre" SHEXEC xprop | xmessage -center -title 'xprop' -file -
+--- WindowMaker-0.95.0/WindowMaker/menu.nl.orig	2011-12-01 14:16:51.244083884 -0200
++++ WindowMaker-0.95.0/WindowMaker/menu.nl	2011-12-01 14:17:15.083083931 -0200
+@@ -42,33 +42,7 @@
+ 	"XTerm" SHEXEC xterm -sb || color-xterm -sb || xterm -sb
+ 	"XJed"	EXEC xjed
+ 	"Werkplaatsen" WORKSPACE_MENU
+-	"Applicaties" MENU
+-		"Grafische toepassingen" MENU
+-			"Gimp" EXEC gimp
+-			"XV" EXEC xv
+-			"XPaint" EXEC xpaint
+-			"XFig" EXEC xfig
+-		"Grafische toepassingen" END
+-		"X File Manager" EXEC xfm
+-		"OffiX Files" EXEC files
+-		"LyX" EXEC lyx
+-		"Netscape" EXEC netscape
+-  		"Ghostview" EXEC ghostview
+-		"Acrobat" EXEC /usr/local/Acrobat3/bin/acroread
+-  		"TkDesk" EXEC tkdesk
+-	"Applicaties" END
+-	"Editors" MENU
+-		"XEmacs" EXEC xemacs
+-		"XJed" EXEC xjed
+-		"NEdit" EXEC nedit
+-		"Xedit" EXEC xedit
+-		"VI" EXEC xterm -e vi
+-	"Editors" END
+-	"Diverse" MENU
+-		"Xmcd" SHEXEC xmcd 2> /dev/null
+-		"Xplaycd" EXEC xplaycd
+-		"Xmixer" EXEC xmixer
+-	"Diverse" END
++	"Applicaties" OPEN_MENU /usr/share/WindowMaker/menu.xdg
+ 	"Utils" MENU
+ 		"Calculator" EXEC xcalc
+ 		"Font Chooser" EXEC xfontsel
+--- WindowMaker-0.95.0/WindowMaker/menu.orig	2011-12-01 14:11:59.205082724 -0200
++++ WindowMaker-0.95.0/WindowMaker/menu	2011-12-01 14:12:25.703083462 -0200
+@@ -118,42 +118,8 @@
+ 	"Info" END
+ 	"Run..." SHEXEC %a(Run,Type command to run:)
+ 	"XTerm" EXEC xterm -sb 
+-	"Mozilla Firefox" EXEC firefox
+ 	"Workspaces" WORKSPACE_MENU
+-	"Applications" MENU
+-		"Gimp" SHEXEC gimp >/dev/null
+-  		"Ghostview" EXEC ghostview %a(GhostView,Enter file to view)
+-		"Xpdf" EXEC xpdf %a(Xpdf,Enter PDF to view)
+-		"Abiword" EXEC abiword
+-		"Dia" EXEC dia
+-		"OpenOffice.org" MENU
+-			"OpenOffice.org" EXEC ooffice
+-			"Writer" EXEC oowriter
+-			"Spreadsheet" EXEC oocalc
+-			"Draw" EXEC oodraw
+-			"Impress" EXEC ooimpress
+-		"OpenOffice.org" END 
+-
+-		"Editors" MENU
+-			"XEmacs" EXEC xemacs
+-			"Emacs" EXEC emacs
+-			"XJed" EXEC xjed 
+-			"VI" EXEC xterm -e vi
+-			"GVIM" EXEC gvim
+-			"NEdit" EXEC nedit
+-			"Xedit" EXEC xedit
+-		"Editors" END
+-
+-		"Multimedia" MENU
+-			"XMMS" MENU
+-				"XMMS" EXEC xmms
+-				"XMMS play/pause" EXEC xmms -t
+-				"XMMS stop" EXEC xmms -s
+-			"XMMS" END
+-			"Xine video player" EXEC xine
+-			"MPlayer" EXEC mplayer
+-		"Multimedia" END
+-	"Applications" END
++	"Applications" OPEN_MENU /usr/share/WindowMaker/menu.xdg
+ 
+ 	"Utils" MENU
+ 		"Calculator" EXEC xcalc
+--- WindowMaker-0.95.0/WindowMaker/plmenu.de.orig	2011-12-01 14:12:49.151084017 -0200
++++ WindowMaker-0.95.0/WindowMaker/plmenu.de	2011-12-01 14:13:21.327084502 -0200
+@@ -11,34 +11,7 @@
+  ("XTerm", EXEC, "xterm -sb"),
+  ("Rxvt", EXEC, "rxvt -bg black -fg white -fn fixed"),
+  ("Arbeitsflächen", WORKSPACE_MENU),
+- ("Anwendungen",
+-  ("Grafik",
+-   ("Gimp", SHEXEC, "gimp >/dev/null"),
+-   ("XV", EXEC, "xv"),
+-   ("XPaint", EXEC, "xpaint"),
+-   ("XFig", EXEC, "xfig")
+-   ),
+-  ("X File Manager", EXEC, "xfm"),
+-  ("OffiX Files", EXEC, "files"),
+-  ("LyX", EXEC, "lyx"),
+-  ("Netscape", EXEC, "netscape"),
+-  ("Ghostview", EXEC, "ghostview %a(Zu betrachtende Datei:)"),
+-  ("Acrobat", EXEC, "/usr/local/Acrobat3/bin/acroread %a(PDF-Datei angeben)"),
+-  ("TkDesk", EXEC, "tkdesk")
+-  ),
+- ("Editoren",
+-  ("XFte", EXEC, "xfte"),
+-  ("XEmacs", SHEXEC, "xemacs || emacs"),
+-  ("XJed", EXEC, "xjed"),
+-  ("NEdit", EXEC, "nedit"),
+-  ("Xedit", EXEC, "xedit"),
+-  ("VI", EXEC, "xterm -e vi")
+-  ),
+- ("Verschiedenes",
+-  ("Xmcd", SHEXEC, "xmcd 2> /dev/null"),
+-  ("Xplaycd", EXEC, "xplaycd"),
+-  ("Xmixer", EXEC, "xmixer")
+-  ),
++ ("Anwendungen", OPEN_MENU, "/usr/share/WindowMaker/menu.xdg"),
+  ("Werkzeuge",
+   ("Taschenrechner", EXEC, "xcalc"),
+   ("Fenstereigenschaften", SHEXEC, "xprop | xmessage -center -title 'xprop' -file -"),
+--- WindowMaker-0.95.0/WindowMaker/plmenu.fr.orig	2011-12-01 14:13:33.215084027 -0200
++++ WindowMaker-0.95.0/WindowMaker/plmenu.fr	2011-12-01 14:14:23.520083351 -0200
+@@ -11,34 +11,7 @@
+   ("Terminal X", EXEC, "xterm -sb"),
+   ("Rxvt", EXEC, "rxvt -bg black -fg white -fn fixed"),
+   ("Bureau", WORKSPACE_MENU),
+-  ("Applications",
+-	("Graphismes",
+-          ("Gimp", SHEXEC, "gimp >/dev/null"),
+-          ("XV", EXEC, "xv"),
+-          ("XPaint", EXEC, "xpaint"),
+-          ("XFig", EXEC, "xfig")
+-         ),
+-	("Xfm", EXEC, "xfm"),
+-        ("OffiX Files", EXEC, "files"),
+-        ("LyX", EXEC , "lyx"),
+-        ("Netscape", EXEC, "netscape"),
+-        ("Ghostview", EXEC, "ghostview %a(Entrez un fichier)"),
+-        ("Acrobat", EXEC, "/usr/local/Acrobat3/bin/acroread %a(Acrobat,Entrez un fichier PDF)"),
+-        ("TkDesk", EXEC, "tkdesk")
+-   ),
+-  ("Editeurs",
+-    ("XFte", EXEC, "xfte"),
+-    ("XEmacs", SHEXEC, "xemacs || emacs"),
+-    ("XJed", EXEC, "xjed"),
+-    ("NEdit", EXEC, "nedit"),
+-    ("Xedit", EXEC, "xedit"),
+-    ("VI", EXEC, "xterm -e vi")
+-  ),
+- ("Divers",
+-   ("Xmcd", SHEXEC, "xmcd 2> /dev/null"),
+-   ("Xplaycd", EXEC, "xplaycd"),
+-   ("Xmixer", EXEC, "xmixer")
+-  ),
++ ("Applications", OPEN_MENU, "/usr/share/WindowMaker/menu.xdg"),
+  ("Utilitaires",
+    ("Calculatrice", EXEC, "xcalc"),
+    ("Propriétés de la fenêtre", SHEXEC, "xprop | xmessage -center -title 'xprop' -file -"),
+--- WindowMaker-0.95.0/WindowMaker/plmenu.orig	2011-12-01 14:14:36.496083827 -0200
++++ WindowMaker-0.95.0/WindowMaker/plmenu	2011-12-01 14:15:08.794083839 -0200
+@@ -9,40 +9,8 @@
+  ),
+  ("Run...", SHEXEC, "%a(Run,Type command to run:)"),
+  ("XTerm", EXEC, "xterm -sb"),
+- ("Mozilla Firefox", EXEC, "firefox"),
+  ("Workspaces", WORKSPACE_MENU),
+- ("Applications",
+-  ("Gimp", SHEXEC, "gimp >/dev/null"),
+-  ("Ghostview", EXEC, "ghostview %a(Enter file to view)"),
+-  ("Xpdf", EXEC, "xpdf %a(Enter PDF to view)"),
+-  ("Abiword", EXEC, "abiword"),
+-  ("Dia", EXEC, "dia"),
+-  ("OpenOffice.org",
+-   ("OpenOffice.org", EXEC, "ooffice"),
+-   ("Writer", EXEC, "oowriter"),
+-   ("Spreadsheet", EXEC, "oocalc"),
+-   ("Draw", EXEC, "oodraw"),
+-   ("Impress", EXEC, "ooimpress")
+-  ),
+-  ("Editors",
+-   ("XEmacs", EXEC, "xemacs"),
+-   ("Emacs", EXEC, "emacs"),
+-   ("XJed", EXEC, "xjed"),
+-   ("VI", EXEC, "xterm -e vi"),
+-   ("GVIM", EXEC, "gvim"),
+-   ("NEdit", EXEC, "nedit"),
+-   ("Xedit", EXEC, "xedit")
+-  ),
+-  ("Multimedia",
+-   ("XMMS",
+-    ("XMMS", EXEC, "xmms"),
+-    ("XMMS play/pause", EXEC, "xmms -t"),
+-    ("XMMS stop", EXEC, "xmms -s")
+-   ),
+-   ("Xine video player", EXEC, "xine"),
+-   ("MPlayer", EXEC, "mplayer")
+-  )
+- ),
++ ("Applications", OPEN_MENU, "/usr/share/WindowMaker/menu.xdg"),
+  ("Utils",
+   ("Calculator", EXEC, "xcalc"),
+   ("Window Properties", SHEXEC, "xprop | xmessage -center -title 'xprop' -file -"),
+--- WindowMaker-0.95.0/WindowMaker/Makefile.am.orig	2011-12-02 17:23:39.764044091 -0200
++++ WindowMaker-0.95.0/WindowMaker/Makefile.am	2011-12-02 17:25:52.206044038 -0200
+@@ -48,6 +48,7 @@ prefsdata_DATA =\
+ 	plmenu.ja\
+ 	plmenu.ko\
+ 	plmenu.pl\
++	plmenu.pt\
+ 	plmenu.ro\
+ 	plmenu.sk\
+ 	plmenu.zh_CN\
+--- WindowMaker-0.95.0/WindowMaker/plmenu.pt.orig	2011-12-02 17:23:52.950044086 -0200
++++ WindowMaker-0.95.0/WindowMaker/plmenu.pt	2011-12-02 16:47:40.373044975 -0200
+@@ -0,0 +1,66 @@
++("Aplicações",
++ ("Informações",
++  ("Painel de Informações", INFO_PANEL),
++  ("Informações Legais", LEGAL_PANEL),
++  ("Console do Sistema", EXEC, "xconsole"),
++  ("Carga do Sistema", SHEXEC, "xosview || xload"),
++  ("Lista de Processos", EXEC, "xterm -e top"),
++  ("Leitor do Manual", EXEC, "xman")
++ ),
++ ("Executar...", SHEXEC, "%a(Run,Type command to run:)"),
++ ("XTerm", EXEC, "xterm -sb"),
++ ("Áreas de Trabalho", WORKSPACE_MENU),
++ ("Aplicações", OPEN_MENU, "/usr/share/WindowMaker/menu.xdg"),
++ ("Utilidades",
++  ("Calculadora", EXEC, "xcalc"),
++  ("Propriedades de Janelas", SHEXEC, "xprop | xmessage -center -title 'xprop' -file -"),
++  ("Seletor de Fontes", EXEC, "xfontsel"),
++  ("Lente de Aumento", EXEC, "wmagnify"),
++  ("Terminar Applicativo", EXEC, "xkill")
++ ),
++ ("Comandos",
++  ("Esconder Outras", HIDE_OTHERS),
++  ("Mostrar Todas", SHOW_ALL),
++  ("Organizar Ícones", ARRANGE_ICONS),
++  ("Redesenhar", REFRESH),
++  ("Bloquear", EXEC, "xlock -allowroot -usefirst")
++ ),
++ ("Aparência",
++  ("Temas", OPEN_MENU, "-noext #wmdatadir#/Themes $HOME/GNUstep/Library/WindowMaker/Themes WITH setstyle"),
++  ("Estilos", OPEN_MENU, "-noext #wmdatadir#/Styles $HOME/GNUstep/Library/WindowMaker/Styles WITH setstyle"),
++  ("Coleções de Ícones", OPEN_MENU, "-noext #wmdatadir#/IconSets $HOME/GNUstep/Library/WindowMaker/IconSets WITH seticons"),
++  ("Pano de Fundo",
++   ("Sólido",
++	("Preto", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, black)'"),
++	("Azul",  EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#505075\")'"),
++	("Indigo", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#243e6c\")'"),
++	("Azul Marinho", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#224477\")'"),
++	("Púrpura", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#554466\")'"),
++	("Cinza", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, wheat4)'"),
++	("Cinza escuro", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#333340\")'"),
++	("Vinho", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#400020\")'")
++   ),
++   ("Gradiente",
++	("Por do Sol", EXEC, "wdwrite WindowMaker WorkspaceBack '(mvgradient, deepskyblue4, black, deepskyblue4, tomato4)'"),
++	("Céu", EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, blue4, white)'"),
++	("Sombras Azuis",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#7080a5\", \"#101020\")'"),
++	("Sombras Indigo", EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#746ebc\", \"#242e4c\")'"),
++	("Sombras Púrpura", EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#654c66\", \"#151426\")'"),
++	("Sombras Cinza",  EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#a09060\", \"#302010\")'"),
++	("Sombras Cinza escuro",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#636380\", \"#131318\")'"),
++	("Sombras cor de Vinho",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#600040\", \"#180010\")'")
++   ),
++   ("Imagens", OPEN_MENU, "-noext #wmdatadir#/Backgrounds $HOME/GNUstep/Library/WindowMaker/Backgrounds WITH wmsetbg -u -t")
++   ),
++   ("Salvar Tema", SHEXEC, "getstyle -t $HOME/GNUstep/Library/WindowMaker/Themes/\"%a(Theme name)\""),
++   ("Salvar Coleção de Ícones", SHEXEC, "geticonset $HOME/GNUstep/Library/WindowMaker/IconSets/\"%a(IconSet name)\""),
++   ("Utilitário de Preferências", EXEC, "/usr/local/GNUstep/Applications/WPrefs.app/WPrefs")
++   ),
++   ("Sessão",
++    ("Salvar Sessão", SAVE_SESSION),
++    ("Limpar Sessão", CLEAR_SESSION),
++	("Reiniciar Window Maker", RESTART),
++	("Iniciar IceWM", RESTART, icewm),
++	("Sair", EXIT)
++   )
++)
+--- WindowMaker-0.95.0/WindowMaker/menu.pt.orig	2011-12-02 19:56:23.519040367 -0200
++++ WindowMaker-0.95.0/WindowMaker/menu.pt	2011-12-02 19:56:59.255040352 -0200
+@@ -114,21 +114,7 @@
+ 	"XTerm" EXEC xterm -sb 
+ 	"Rxvt" EXEC rxvt -bg black -fg white -fn fixed
+ 	"Áreas de Trabalho" WORKSPACE_MENU
+-	"Aplicações" MENU
+-		"Gráficos" MENU
+-			"Gimp" SHEXEC gimp >/dev/null
+-			"XV" EXEC xv
+-			"XPaint" EXEC xpaint
+-			"XFig" EXEC xfig
+-		"Gráficos" END
+-		"X File Manager" EXEC xfm
+-		"OffiX Files" EXEC files
+-		"LyX" EXEC lyx
+-		"Netscape" EXEC netscape 
+-  		"Ghostview" EXEC ghostview %a(Enter file to view)
+-		"Acrobat" EXEC /usr/local/Acrobat3/bin/acroread %a(Enter PDF to view)
+-  		"TkDesk" EXEC tkdesk
+-	"Aplicações" END
++	"Aplicações" OPEN_MENU /usr/share/WindowMaker/menu.xdg
+ 	"Editores" MENU
+ 		"XFte" EXEC xfte
+ 		"XEmacs" SHEXEC xemacs || emacs

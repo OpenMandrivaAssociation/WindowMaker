@@ -1,0 +1,22 @@
+--- WindowMaker-0.95.0/src/window.c.orig	2011-12-02 16:04:51.106046021 -0200
++++ WindowMaker-0.95.0/src/window.c	2011-12-02 16:18:30.627045825 -0200
+@@ -1184,9 +1184,6 @@ WWindow *wManageWindow(WScreen *scr, Win
+ 	 */
+ 	wWindowConfigure(wwin, x, y, width, height);
+ 
+-	/* to make sure the window receives it's new position after reparenting */
+-	wWindowSynthConfigureNotify(wwin);
+-
+ 	/*
+ 	 * Setup descriptors and save window to internal
+ 	 * lists
+@@ -1332,6 +1329,9 @@ WWindow *wManageWindow(WScreen *scr, Win
+ 	if (title)
+ 		XFree(title);
+ 
++	/* to make sure the window receives it's new position after reparenting */
++	wWindowSynthConfigureNotify(wwin);
++
+ 	XUngrabServer(dpy);
+ 
+ 	/*
