@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ "$USER_MENU" = "1" ]; then
+ OUTPUTDIR=$HOME/GNUstep/Library/WindowMaker/
+else
+ OUTPUTDIR=/usr/share/WindowMaker
+fi
+
+if [ "$VERBOSE" = "1" ]; then
+ echo "writing to $OUTPUTDIR/menu"
+/usr/bin/xdg_menu --verbose --format WindowMaker --charset UTF-8 > $OUTPUTDIR/menu.xdg 
+else
+/usr/bin/xdg_menu --format WindowMaker --charset UTF-8 > $OUTPUTDIR/menu.xdg 2> /dev/null
+fi
+

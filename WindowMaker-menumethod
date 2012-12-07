@@ -1,0 +1,43 @@
+#!/usr/sbin/install-menu
+#
+# Generates Window Maker menus for all registered applications.
+
+!include menu.h
+compat="menu-1";
+outputencoding="UTF-8"
+
+genmenu="menu"
+rootprefix="/usr/share/WindowMaker"
+userprefix="GNUstep/Library/WindowMaker/"
+treewalk="(M)"
+rootsection="n"
+sort=ifeqelse($title, "Exit", "1", "0")":"$title
+
+function exec($action,$com)= \
+        "  \"" encode_translate(lang(),$title,"utf-8") "\" " ifnempty($shortcut, "SHORTCUT " $shortcut " ") $action " " esc($com,"*") "\n" 
+
+supported
+x11=	exec("EXEC",$command) 
+wm=	exec("RESTART",$command) 
+text=	exec("EXEC",term())
+wmaker= exec("",$command ifnempty($arg," " $arg))
+endsupported
+
+preoutput= "/* Automatically generated file. Do not edit (see /usr/doc/menu/README) */\n\n#include \"wmmacros\"\n"
+
+mainmenutitle=""
+submenutitle= ""
+
+startmenu= "\n" \
+           ifelse( \
+                title(), \
+                "\"" encode_translate(lang(),title(),"utf-8") "\" MENU", \
+                "\"Mandriva Linux\" MENU\n\n#include \"user.menu\"" \
+           ) \
+           "\n"
+endmenu=   ifelse( \
+                title(), \
+                "\"" encode_translate(lang(),title(),"utf-8") "\" END", \
+                "\n\"Mandriva Linux\" END" \
+           ) \
+           "\n"

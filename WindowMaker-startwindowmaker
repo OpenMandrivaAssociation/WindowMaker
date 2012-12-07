@@ -1,0 +1,37 @@
+#!/bin/sh
+#   To use to launch WindowMaker
+#   © 2000, 2001 MandrakeSoft, Thierry Vignaud <tvignaud@mandrakesoft.com>,
+#                David BAUDENS <baudens@mandrakesoft.com>
+#   License: GPL
+
+if [ "`whoami`" = root ] ; then
+	/usr/bin/xsetroot -cursor_name left_ptr -solid "#B20003"
+else
+	/usr/bin/xsetroot -cursor_name left_ptr -solid "#21449C"
+fi
+
+
+if [ ! -d ~/GNUstep/Library/WindowMaker ]; then
+    yes | wmaker.inst
+    # modifications to use Mandrakelinux menus
+    rm -f ~/GNUstep/Library/WindowMaker/menu*
+    touch ~/GNUstep/Library/WindowMaker/user.menu
+    echo /usr/share/WindowMaker/menu > ~/GNUstep/Defaults/WMRootMenu
+
+
+    # Matthias - 0.9.0-0.2mdk - use Galay theme as default
+    if [ "`whoami`" = root ] ; then
+	    sed s/default.png/root\\\/default.png/g /usr/share/WindowMaker/Themes/Galaxy.style > /tmp/Galaxy-root.style
+	    setstyle /tmp/Galaxy-root.style
+    else
+    setstyle /usr/share/WindowMaker/Themes/Galaxy.style
+    fi
+    
+    cp /etc/X11/WindowMaker/{WMGLOBAL,WMState} ~/GNUstep/Defaults/
+fi
+
+# set NLSPATH - mandatory to get correct locale!
+export NLSPATH=/usr/share/locale
+
+exec /usr/bin/wmaker $@
+

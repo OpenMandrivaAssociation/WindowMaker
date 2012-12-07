@@ -1,0 +1,6 @@
+NAME=WindowMaker
+ICON=wmaker-wmsession.xpm
+EXEC=/usr/bin/startwindowmaker
+DESC=Window manager which emulates the look and feel of the NeXTSTEP (TM) graphical user interface
+SCRIPT:
+exec /usr/bin/startwindowmaker

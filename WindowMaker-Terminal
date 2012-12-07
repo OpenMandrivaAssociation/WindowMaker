@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# WindowMaker-Terminal
+
+# (c) 2000 MandrakeSoft - David BAUDENS <baudens@mandrakesoft.com>
+# Licence: G.P.L.
+
+# Launch the default terminal emulator in Window Maker Dock and allows user
+# to lauch another (and another and another etc.) with a simple double click
+
+# At present time, launch ATerm. Need to be replaced by WM-Terminal when
+# update-alternatives will be ready
+
+# Geoffrey Lee 20020228 - really don't depend on aterm. You can get the 
+# pevious behavior by commenting the xvt line and uncommenting the next
+# line.
+#aterm -name Terminal -bg black -fg grey -fn -*-fixed-bold-*-*-*-15-*-*-*-*-*-*-* &
+xvt $*&

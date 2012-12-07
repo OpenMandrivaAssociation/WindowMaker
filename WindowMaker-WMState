@@ -1,0 +1,124 @@
+{
+  Dock = {
+    Applications = (
+      {
+        Command = "/usr/GNUstep/Applications/WPrefs.app/WPrefs";
+        Name = Logo.WPrefs;
+        AutoLaunch = No;
+        Lock = No;
+        Forced = No;
+        BuggyApplication = No;
+        Position = "0,0";
+      },
+      {
+        Command = "wmCalClock -b 100 -24 -tc #001100 -bc #7e9e69";
+        Name = "wmCalClock.wmCalClock";
+        AutoLaunch = Yes;
+        Lock = No;
+        Forced = No;
+        BuggyApplication = No;
+        Position = "0,1";
+        DropCommand = "wmCalClock -b 100 -24 -tc #001100 -bc #7e9e69 %d";
+      },
+      {
+        Command = "/usr/bin/WindowMaker-Terminal";
+        Name = terminal.Terminal;
+        AutoLaunch = No;
+        Lock = No;
+        Forced = No;
+        BuggyApplication = No;
+        Position = "0,2";
+      }
+    );
+    Applications1024 = (
+      {
+        Command = "/usr/GNUstep/Applications/WPrefs.app/WPrefs";
+        Name = Logo.WPrefs;
+        AutoLaunch = No;
+        Lock = No;
+        Forced = No;
+        BuggyApplication = No;
+        Position = "0,0";
+      },
+      {
+        Command = "wmCalClock -b 100 -24 -tc #001100 -bc #7e9e69";
+        Name = "wmCalClock.wmCalClock";
+        AutoLaunch = Yes;
+        Lock = No;
+        Forced = No;
+        BuggyApplication = No;
+        Position = "0,1";
+        DropCommand = "wmCalClock -b 100 -24 -tc #001100 -bc #7e9e69 %d";
+      },
+      {
+        Command = "/usr/bin/WindowMaker-Terminal";
+        Name = terminal.Terminal;
+        AutoLaunch = No;
+        Lock = No;
+        Forced = No;
+        BuggyApplication = No;
+        Position = "0,2";
+      }
+    );
+    Position = "-64,0";
+    Lowered = Yes;
+  };
+  Clip = {
+    Command = "-";
+    Name = Logo.WMClip;
+    AutoLaunch = No;
+    Lock = No;
+    Forced = No;
+    BuggyApplication = No;
+    Position = "0,0";
+    DropCommand = "wmsetbg -u -t %d";
+  };
+  Workspaces = (
+    {
+      Name = I;
+      Clip = {
+        Applications = ();
+        Lowered = Yes;
+        Collapsed = No;
+        AutoCollapse = No;
+        AutoRaiseLower = No;
+        AutoAttractIcons = No;
+      };
+    },
+    {
+      Name = "II";
+      Clip = {
+        Applications = ();
+        Lowered = Yes;
+        Collapsed = No;
+        AutoCollapse = No;
+        AutoRaiseLower = No;
+        AutoAttractIcons = No;
+      };
+    },
+    {
+      Name = "III";
+      Clip = {
+        Applications = ();
+        Lowered = Yes;
+        Collapsed = No;
+        AutoCollapse = No;
+        AutoRaiseLower = No;
+        AutoAttractIcons = No;
+      };
+    },
+    {
+      Name = "IV";
+      Clip = {
+        Applications = ();
+        Lowered = Yes;
+        Collapsed = No;
+        AutoCollapse = No;
+        AutoRaiseLower = No;
+        AutoAttractIcons = No;
+      };
+    }
+  );
+  Applications = ();
+  Workspace = Main;
+}
