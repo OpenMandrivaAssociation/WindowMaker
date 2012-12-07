@@ -1,15 +1,5 @@
 sources:
-  "03WindowMaker:"	9d8bbc44d50cc75d920ab6d384c41bea2b32ab55
-  "WindowMaker:"	8b400de363c25ffa248af7b865b09f7377af7b41
-  "WindowMaker-0.80.1-man-pages.tar.bz2:"	611dc3eea5b463084dddaf0bd1fe31d19616e9b6
-  "WindowMaker-0.95.2.tar.gz:"	9fa55d525a04377089caf6ffc0c4d8d0aebe9d61
-  "WindowMaker-data.tar.bz2:"	fe7f3c46beb4b7b158e94db5c3bdc6ecaf0fec93
-  "WindowMaker-Galaxy.style.bz2:"	49e5f1ff38a987c442ff5230bee941408f6649ea
-  "WindowMaker-menumethod:"	b9aeccce1ccafde10ead53ac35d168c9c20e4357
-  "WindowMaker-startwindowmaker:"	920cd9d8716723c58860d3cc3b96fbed091950ea
-  "WindowMaker-Terminal:"	68e3ef72a6ba311f880d1b589ba3bd63dd309f4f
-  "WindowMaker-WindowMaker:"	750e0544b9f15aff22320f5ef5a019c0a06fc310
-  "WindowMaker-wmaker.inst:"	160e6b471e993a92c736d06a3b8a7e906dc69af8
-  "WindowMaker-WMGLOBAL:"	a958c5a89cbf8e4dd60e72cf8de5f8fd06889c70
-  "WindowMaker-WMState:"	da4863a872ebda8309227f91231e3f9019f5d7ba
-  "WindowMaker-WMWindowAttributes:"	3279410b8550ff5402b044ffd549cd509a93869f
+  "WindowMaker-0.80.1-man-pages.tar.bz2": 611dc3eea5b463084dddaf0bd1fe31d19616e9b6
+  "WindowMaker-0.95.2.tar.gz": 9fa55d525a04377089caf6ffc0c4d8d0aebe9d61
+  "WindowMaker-Galaxy.style.bz2": 49e5f1ff38a987c442ff5230bee941408f6649ea
+  "WindowMaker-data.tar.bz2": fe7f3c46beb4b7b158e94db5c3bdc6ecaf0fec93
