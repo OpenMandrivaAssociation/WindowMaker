@@ -15,7 +15,7 @@
 Summary:	A window manager for the X Window System
 Name:		WindowMaker
 Version:	0.95.2
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/WindowMaker
 URL:		http://www.windowmaker.info/
@@ -48,6 +48,8 @@ Patch3:		windowmaker-0.95.2-mga-fix-paths-in-german-plmenu.patch
 Patch4:		windowmaker-0.95.2-mga-stop-using-old-X11R6-directory.patch
 Patch5:		windowmaker-0.95.2-mga-patch-WMState-to-use-old-Mageia-configuration.patch
 Patch6:		wmaker-0.94.0-net_wm_moveresize.patch
+
+Patch7:		WindowMaker-automake-1.13.patch
 
 Requires:	desktop-common-data
 Requires:	mandriva-theme
@@ -223,6 +225,7 @@ This package allows building applications using the libWINGs library.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1 -b .am113~
 
 %if %{snapshot}
 sh ./autogen.sh

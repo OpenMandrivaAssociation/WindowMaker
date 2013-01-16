@@ -1,0 +1,11 @@
+--- WindowMaker-0.95.2/configure.ac.bero	2013-01-16 03:55:11.006236890 +0100
++++ WindowMaker-0.95.2/configure.ac	2013-01-16 03:55:17.358163832 +0100
+@@ -14,7 +14,7 @@ dnl
+ AC_INIT(WindowMaker, 0.95.2, , WindowMaker, http://www.windowmaker.org/)
+ AC_CONFIG_SRCDIR(src/WindowMaker.h)
+ AC_CONFIG_MACRO_DIR([m4])
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS([config.h])
+ AM_INIT_AUTOMAKE([1.11 silent-rules])
+ 
+ AH_BOTTOM([#include "config-paths.h"])
