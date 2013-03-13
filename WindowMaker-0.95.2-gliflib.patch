@@ -1,0 +1,46 @@
+--- WindowMaker-0.95.2/wrlib/gif.c.orig	2013-03-13 14:06:50.073630735 -0300
++++ WindowMaker-0.95.2/wrlib/gif.c	2013-03-13 14:07:57.415402332 -0300
+@@ -43,6 +43,9 @@ RImage *RLoadGIF(char *file, int index)
+ 	unsigned char *cptr;
+ 	GifFileType *gif = NULL;
+ 	GifPixelType *buffer = NULL;
++#if GIFLIB_MAJOR >= 5
++	int GifLastError;
++#endif
+ 	int i, j, k;
+ 	int width, height;
+ 	GifRecordType recType;
+@@ -57,10 +60,18 @@ RImage *RLoadGIF(char *file, int index)
+ 	/* default error message */
+ 	RErrorCode = RERR_BADINDEX;
+ 
+-	gif = DGifOpenFileName(file);
++	gif = DGifOpenFileName(file
++#if GIFLIB_MAJOR >= 5
++			       , &GifLastError
++#endif
++			       );
+ 
+ 	if (!gif) {
+-		switch (GifLastError()) {
++		switch (GifLastError
++#if GIFLIB_MAJOR < 5
++			()
++#endif
++			) {
+ 		case D_GIF_ERR_OPEN_FAILED:
+ 			RErrorCode = RERR_OPEN;
+ 			break;
+@@ -197,7 +208,11 @@ RImage *RLoadGIF(char *file, int index)
+ 	/* yuck! */
+ 	goto did_not_get_any_errors;
+  giferr:
+-	switch (GifLastError()) {
++	switch (GifLastError
++#if GIFLIB_MAJOR < 5
++		()
++#endif
++		) {
+ 	case D_GIF_ERR_OPEN_FAILED:
+ 		RErrorCode = RERR_OPEN;
+ 		break;

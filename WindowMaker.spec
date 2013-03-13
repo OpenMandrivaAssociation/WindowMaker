@@ -50,6 +50,7 @@ Patch5:		windowmaker-0.95.2-mga-patch-WMState-to-use-old-Mageia-configuration.pa
 Patch6:		wmaker-0.94.0-net_wm_moveresize.patch
 
 Patch7:		WindowMaker-automake-1.13.patch
+Patch8:		%{name}-0.95.2-gliflib.patch
 
 Requires:	desktop-common-data
 Requires:	mandriva-theme
@@ -226,6 +227,7 @@ This package allows building applications using the libWINGs library.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1 -b .am113~
+%patch8 -p1
 
 %if %{snapshot}
 sh ./autogen.sh
