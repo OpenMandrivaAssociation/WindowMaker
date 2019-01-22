@@ -1,16 +1,17 @@
---- WindowMaker-0.95.0/src/window.c.orig	2011-12-02 16:04:51.106046021 -0200
-+++ WindowMaker-0.95.0/src/window.c	2011-12-02 16:18:30.627045825 -0200
-@@ -1184,9 +1184,6 @@ WWindow *wManageWindow(WScreen *scr, Win
- 	 */
+diff -up WindowMaker-0.95.8/src/window.c.3~ WindowMaker-0.95.8/src/window.c
+--- WindowMaker-0.95.8/src/window.c.3~	2019-01-19 22:59:30.363129092 +0100
++++ WindowMaker-0.95.8/src/window.c	2019-01-19 23:01:08.366467958 +0100
+@@ -1165,9 +1165,6 @@ WWindow *wManageWindow(WScreen *scr, Win
+ 	 * related variables (frame_x,frame_y) */
  	wWindowConfigure(wwin, x, y, width, height);
  
 -	/* to make sure the window receives it's new position after reparenting */
 -	wWindowSynthConfigureNotify(wwin);
 -
- 	/*
- 	 * Setup descriptors and save window to internal
- 	 * lists
-@@ -1332,6 +1329,9 @@ WWindow *wManageWindow(WScreen *scr, Win
+ 	/* Setup descriptors and save window to internal lists */
+ 	if (wwin->main_window != None) {
+ 		WApplication *app;
+@@ -1283,6 +1280,9 @@ WWindow *wManageWindow(WScreen *scr, Win
  	if (title)
  		XFree(title);
  
@@ -19,4 +20,4 @@
 +
  	XUngrabServer(dpy);
  
- 	/*
+ 	/* Final preparations before window is ready to go */

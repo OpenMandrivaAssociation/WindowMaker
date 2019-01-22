@@ -1,23 +1,15 @@
---- wmaker-crm.bak/src/wmspec.c	2011-04-18 22:25:44.000000000 +0200
-+++ wmaker-crm/src/wmspec.c	2011-07-09 03:03:40.105674683 +0200
-@@ -250,9 +250,7 @@
- 	atom[i++] = net_active_window;
- 	atom[i++] = net_supporting_wm_check;
- 	atom[i++] = net_showing_desktop;
--#if 0
- 	atom[i++] = net_wm_moveresize;
--#endif
- 	atom[i++] = net_wm_desktop;
- 	atom[i++] = net_wm_window_type;
- 	atom[i++] = net_wm_window_type_desktop;
-@@ -1450,6 +1448,10 @@
- 				wWindowSetOmnipresent(wwin, False);
+diff -up WindowMaker-0.95.8/src/wmspec.c.5~ WindowMaker-0.95.8/src/wmspec.c
+--- WindowMaker-0.95.8/src/wmspec.c.5~	2019-01-22 03:16:01.845742359 +0100
++++ WindowMaker-0.95.8/src/wmspec.c	2019-01-22 03:17:15.349786683 +0100
+@@ -1652,6 +1652,11 @@ Bool wNETWMProcessClientMessage(XClientM
  			wWindowChangeWorkspace(wwin, desktop);
  		}
+ 		return True;
++
 +	} else if (event->message_type == net_wm_moveresize) {
 +		/* TODO, but accept it anyway */
 +		
 +		XUngrabPointer(dpy, CurrentTime);
- 	} else {
- 		done = False;
  	}
+ 
+ 	return False;

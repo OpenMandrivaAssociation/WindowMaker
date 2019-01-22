@@ -1,5 +1,17 @@
---- WindowMaker-0.95.0/WindowMaker/menu.de.orig	2011-12-01 14:15:18.293083782 -0200
-+++ WindowMaker-0.95.0/WindowMaker/menu.de	2011-12-01 14:16:04.948083736 -0200
+diff -up WindowMaker-0.95.8/WindowMaker/Makefile.am.2~ WindowMaker-0.95.8/WindowMaker/Makefile.am
+--- WindowMaker-0.95.8/WindowMaker/Makefile.am.2~	2017-03-13 16:25:53.000000000 +0100
++++ WindowMaker-0.95.8/WindowMaker/Makefile.am	2019-01-19 22:57:28.699451844 +0100
+@@ -56,6 +56,7 @@ NONGENERATED_MENUS =\
+ 	plmenu.hr\
+ 	plmenu.it\
+ 	plmenu.pl\
++	plmenu.pt\
+ 	plmenu.zh_CN
+ 
+ dist_prefsdata_DATA =\
+diff -up WindowMaker-0.95.8/WindowMaker/menu.de.2~ WindowMaker-0.95.8/WindowMaker/menu.de
+--- WindowMaker-0.95.8/WindowMaker/menu.de.2~	2017-03-13 16:25:53.000000000 +0100
++++ WindowMaker-0.95.8/WindowMaker/menu.de	2019-01-19 22:57:28.698451830 +0100
 @@ -49,36 +49,8 @@
  		"Anleitungen" EXEC xman
  	"Info" END
@@ -38,8 +50,9 @@
  	"Hilfsmittel" MENU
  		"Taschenrechner" EXEC xcalc
  		"Schriftauswahl" EXEC xfontsel
---- WindowMaker-0.95.0/WindowMaker/menu.fr.orig	2011-12-01 14:16:09.853083681 -0200
-+++ WindowMaker-0.95.0/WindowMaker/menu.fr	2011-12-01 14:16:45.173083813 -0200
+diff -up WindowMaker-0.95.8/WindowMaker/menu.fr.2~ WindowMaker-0.95.8/WindowMaker/menu.fr
+--- WindowMaker-0.95.8/WindowMaker/menu.fr.2~	2017-03-13 16:25:53.000000000 +0100
++++ WindowMaker-0.95.8/WindowMaker/menu.fr	2019-01-19 22:57:28.699451844 +0100
 @@ -163,34 +163,7 @@
  	"Terminal X" EXEC xterm -sb
  	"Rxvt" EXEC rxvt -bg black -fg white -fn fixed
@@ -76,45 +89,9 @@
  	"Utilitaires" MENU
  		"Calculatrice" EXEC xcalc
  		"Propriétés de la fenêtre" SHEXEC xprop | xmessage -center -title 'xprop' -file -
---- WindowMaker-0.95.0/WindowMaker/menu.nl.orig	2011-12-01 14:16:51.244083884 -0200
-+++ WindowMaker-0.95.0/WindowMaker/menu.nl	2011-12-01 14:17:15.083083931 -0200
-@@ -42,33 +42,7 @@
- 	"XTerm" SHEXEC xterm -sb || color-xterm -sb || xterm -sb
- 	"XJed"	EXEC xjed
- 	"Werkplaatsen" WORKSPACE_MENU
--	"Applicaties" MENU
--		"Grafische toepassingen" MENU
--			"Gimp" EXEC gimp
--			"XV" EXEC xv
--			"XPaint" EXEC xpaint
--			"XFig" EXEC xfig
--		"Grafische toepassingen" END
--		"X File Manager" EXEC xfm
--		"OffiX Files" EXEC files
--		"LyX" EXEC lyx
--		"Netscape" EXEC netscape
--  		"Ghostview" EXEC ghostview
--		"Acrobat" EXEC /usr/local/Acrobat3/bin/acroread
--  		"TkDesk" EXEC tkdesk
--	"Applicaties" END
--	"Editors" MENU
--		"XEmacs" EXEC xemacs
--		"XJed" EXEC xjed
--		"NEdit" EXEC nedit
--		"Xedit" EXEC xedit
--		"VI" EXEC xterm -e vi
--	"Editors" END
--	"Diverse" MENU
--		"Xmcd" SHEXEC xmcd 2> /dev/null
--		"Xplaycd" EXEC xplaycd
--		"Xmixer" EXEC xmixer
--	"Diverse" END
-+	"Applicaties" OPEN_MENU /usr/share/WindowMaker/menu.xdg
- 	"Utils" MENU
- 		"Calculator" EXEC xcalc
- 		"Font Chooser" EXEC xfontsel
---- WindowMaker-0.95.0/WindowMaker/menu.orig	2011-12-01 14:11:59.205082724 -0200
-+++ WindowMaker-0.95.0/WindowMaker/menu	2011-12-01 14:12:25.703083462 -0200
+diff -up WindowMaker-0.95.8/WindowMaker/menu.in.2~ WindowMaker-0.95.8/WindowMaker/menu.in
+--- WindowMaker-0.95.8/WindowMaker/menu.in.2~	2017-03-13 16:25:53.000000000 +0100
++++ WindowMaker-0.95.8/WindowMaker/menu.in	2019-01-19 22:57:28.699451844 +0100
 @@ -118,42 +118,8 @@
  	"Info" END
  	"Run..." SHEXEC %a(Run,Type command to run:)
@@ -159,8 +136,80 @@
  
  	"Utils" MENU
  		"Calculator" EXEC xcalc
---- WindowMaker-0.95.0/WindowMaker/plmenu.de.orig	2011-12-01 14:12:49.151084017 -0200
-+++ WindowMaker-0.95.0/WindowMaker/plmenu.de	2011-12-01 14:13:21.327084502 -0200
+diff -up WindowMaker-0.95.8/WindowMaker/menu.nl.in.2~ WindowMaker-0.95.8/WindowMaker/menu.nl.in
+--- WindowMaker-0.95.8/WindowMaker/menu.nl.in.2~	2019-01-19 22:57:28.699451844 +0100
++++ WindowMaker-0.95.8/WindowMaker/menu.nl.in	2019-01-19 22:59:09.535845195 +0100
+@@ -120,40 +120,8 @@
+ 	"XTerm" EXEC xterm -sb 
+ 	"Mozilla Firefox" EXEC firefox
+ 	"Werkruimten" WORKSPACE_MENU
+-	"Programma's" MENU
+-		"Gimp" SHEXEC gimp >/dev/null
+-  		"Ghostview" EXEC ghostview %a(GhostView,Voer te bekijken bestand in)
+-		"Xpdf" EXEC xpdf %a(Xpdf,Voer te bekijken PDF in)
+-		"Abiword" EXEC abiword
+-		"Dia" EXEC dia
+-		"OpenOffice.org" MENU
+-			"OpenOffice.org" EXEC ooffice
+-			"Writer" EXEC oowriter
+-			"Rekenblad" EXEC oocalc
+-			"Draw" EXEC oodraw
+-			"Impress" EXEC ooimpress
+-		"OpenOffice.org" END 
+ 
+-		"Tekstbewerkers" MENU
+-			"XEmacs" EXEC xemacs
+-			"Emacs" EXEC emacs
+-			"XJed" EXEC xjed 
+-			"VI" EXEC xterm -e vi
+-			"GVIM" EXEC gvim
+-			"NEdit" EXEC nedit
+-			"Xedit" EXEC xedit
+-		"Tekstbewerkers" END
+-
+-		"Multimedia" MENU
+-			"XMMS" MENU
+-				"XMMS" EXEC xmms
+-				"XMMS afspelen/pauzeren" EXEC xmms -t
+-				"XMMS stoppen" EXEC xmms -s
+-			"XMMS" END
+-			"Xine videospeler" EXEC xine
+-			"MPlayer" EXEC mplayer
+-		"Multimedia" END
+-	"Programma's" END
++	"Programma's" OPEN_MENU /usr/share/WindowMaker/menu.xdg
+ 
+ 	"Hulpmiddelen" MENU
+ 		"Rekenmachine" EXEC xcalc
+diff -up WindowMaker-0.95.8/WindowMaker/menu.pt.2~ WindowMaker-0.95.8/WindowMaker/menu.pt
+--- WindowMaker-0.95.8/WindowMaker/menu.pt.2~	2017-03-13 16:25:53.000000000 +0100
++++ WindowMaker-0.95.8/WindowMaker/menu.pt	2019-01-19 22:57:28.699451844 +0100
+@@ -114,21 +114,7 @@
+ 	"XTerm" EXEC xterm -sb 
+ 	"Rxvt" EXEC rxvt -bg black -fg white -fn fixed
+ 	"Áreas de Trabalho" WORKSPACE_MENU
+-	"Aplicações" MENU
+-		"Gráficos" MENU
+-			"Gimp" SHEXEC gimp >/dev/null
+-			"XV" EXEC xv
+-			"XPaint" EXEC xpaint
+-			"XFig" EXEC xfig
+-		"Gráficos" END
+-		"X File Manager" EXEC xfm
+-		"OffiX Files" EXEC files
+-		"LyX" EXEC lyx
+-		"Netscape" EXEC netscape 
+-  		"Ghostview" EXEC ghostview %a(Enter file to view)
+-		"Acrobat" EXEC /usr/local/Acrobat3/bin/acroread %a(Enter PDF to view)
+-  		"TkDesk" EXEC tkdesk
+-	"Aplicações" END
++	"Aplicações" OPEN_MENU /usr/share/WindowMaker/menu.xdg
+ 	"Editores" MENU
+ 		"XFte" EXEC xfte
+ 		"XEmacs" SHEXEC xemacs || emacs
+diff -up WindowMaker-0.95.8/WindowMaker/plmenu.de.2~ WindowMaker-0.95.8/WindowMaker/plmenu.de
+--- WindowMaker-0.95.8/WindowMaker/plmenu.de.2~	2017-03-13 16:25:53.000000000 +0100
++++ WindowMaker-0.95.8/WindowMaker/plmenu.de	2019-01-19 22:57:28.699451844 +0100
 @@ -11,34 +11,7 @@
   ("XTerm", EXEC, "xterm -sb"),
   ("Rxvt", EXEC, "rxvt -bg black -fg white -fn fixed"),
@@ -197,8 +246,9 @@
   ("Werkzeuge",
    ("Taschenrechner", EXEC, "xcalc"),
    ("Fenstereigenschaften", SHEXEC, "xprop | xmessage -center -title 'xprop' -file -"),
---- WindowMaker-0.95.0/WindowMaker/plmenu.fr.orig	2011-12-01 14:13:33.215084027 -0200
-+++ WindowMaker-0.95.0/WindowMaker/plmenu.fr	2011-12-01 14:14:23.520083351 -0200
+diff -up WindowMaker-0.95.8/WindowMaker/plmenu.fr.2~ WindowMaker-0.95.8/WindowMaker/plmenu.fr
+--- WindowMaker-0.95.8/WindowMaker/plmenu.fr.2~	2017-03-13 16:25:53.000000000 +0100
++++ WindowMaker-0.95.8/WindowMaker/plmenu.fr	2019-01-19 22:57:28.699451844 +0100
 @@ -11,34 +11,7 @@
    ("Terminal X", EXEC, "xterm -sb"),
    ("Rxvt", EXEC, "rxvt -bg black -fg white -fn fixed"),
@@ -235,8 +285,9 @@
   ("Utilitaires",
     ("Calculatrice", EXEC, "xcalc"),
     ("Propriétés de la fenêtre", SHEXEC, "xprop | xmessage -center -title 'xprop' -file -"),
---- WindowMaker-0.95.0/WindowMaker/plmenu.orig	2011-12-01 14:14:36.496083827 -0200
-+++ WindowMaker-0.95.0/WindowMaker/plmenu	2011-12-01 14:15:08.794083839 -0200
+diff -up WindowMaker-0.95.8/WindowMaker/plmenu.in.2~ WindowMaker-0.95.8/WindowMaker/plmenu.in
+--- WindowMaker-0.95.8/WindowMaker/plmenu.in.2~	2017-03-13 16:25:53.000000000 +0100
++++ WindowMaker-0.95.8/WindowMaker/plmenu.in	2019-01-19 22:57:28.699451844 +0100
 @@ -9,40 +9,8 @@
   ),
   ("Run...", SHEXEC, "%a(Run,Type command to run:)"),
@@ -279,18 +330,9 @@
   ("Utils",
    ("Calculator", EXEC, "xcalc"),
    ("Window Properties", SHEXEC, "xprop | xmessage -center -title 'xprop' -file -"),
---- WindowMaker-0.95.0/WindowMaker/Makefile.am.orig	2011-12-02 17:23:39.764044091 -0200
-+++ WindowMaker-0.95.0/WindowMaker/Makefile.am	2011-12-02 17:25:52.206044038 -0200
-@@ -48,6 +48,7 @@ prefsdata_DATA =\
- 	plmenu.ja\
- 	plmenu.ko\
- 	plmenu.pl\
-+	plmenu.pt\
- 	plmenu.ro\
- 	plmenu.sk\
- 	plmenu.zh_CN\
---- WindowMaker-0.95.0/WindowMaker/plmenu.pt.orig	2011-12-02 17:23:52.950044086 -0200
-+++ WindowMaker-0.95.0/WindowMaker/plmenu.pt	2011-12-02 16:47:40.373044975 -0200
+diff -up WindowMaker-0.95.8/WindowMaker/plmenu.pt.2~ WindowMaker-0.95.8/WindowMaker/plmenu.pt
+--- WindowMaker-0.95.8/WindowMaker/plmenu.pt.2~	2019-01-19 22:57:28.699451844 +0100
++++ WindowMaker-0.95.8/WindowMaker/plmenu.pt	2019-01-19 22:57:28.699451844 +0100
 @@ -0,0 +1,66 @@
 +("Aplicações",
 + ("Informações",
@@ -358,28 +400,3 @@
 +	("Sair", EXIT)
 +   )
 +)
---- WindowMaker-0.95.0/WindowMaker/menu.pt.orig	2011-12-02 19:56:23.519040367 -0200
-+++ WindowMaker-0.95.0/WindowMaker/menu.pt	2011-12-02 19:56:59.255040352 -0200
-@@ -114,21 +114,7 @@
- 	"XTerm" EXEC xterm -sb 
- 	"Rxvt" EXEC rxvt -bg black -fg white -fn fixed
- 	"Áreas de Trabalho" WORKSPACE_MENU
--	"Aplicações" MENU
--		"Gráficos" MENU
--			"Gimp" SHEXEC gimp >/dev/null
--			"XV" EXEC xv
--			"XPaint" EXEC xpaint
--			"XFig" EXEC xfig
--		"Gráficos" END
--		"X File Manager" EXEC xfm
--		"OffiX Files" EXEC files
--		"LyX" EXEC lyx
--		"Netscape" EXEC netscape 
--  		"Ghostview" EXEC ghostview %a(Enter file to view)
--		"Acrobat" EXEC /usr/local/Acrobat3/bin/acroread %a(Enter PDF to view)
--  		"TkDesk" EXEC tkdesk
--	"Aplicações" END
-+	"Aplicações" OPEN_MENU /usr/share/WindowMaker/menu.xdg
- 	"Editores" MENU
- 		"XFte" EXEC xfte
- 		"XEmacs" SHEXEC xemacs || emacs
