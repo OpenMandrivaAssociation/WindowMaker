@@ -42,7 +42,7 @@ Source24:	03WindowMaker
 Patch0:		WindowMaker-0.95.0-NET_WM_NAME.patch
 
 # include the xdg menu (do not replace the original menu since it contains windowmaker-specific commands)
-Patch1:		WindowMaker-0.95.0-applications-menu.patch
+#Patch1:		WindowMaker-0.95.0-applications-menu.patch
 
 # correct focus not set on some qt windows, usually "About Qt"
 Patch2:		WindowMaker-0.95.0-qt_popup.patch
