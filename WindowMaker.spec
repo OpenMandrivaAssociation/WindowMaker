@@ -97,7 +97,7 @@ a workspace dock, a 'clip' which extends the application dock's usefulness.
 %lang(cs) %doc %{_mandir}/cs/man1/*
 %lang(sk) %doc %{_mandir}/sk/man1/*
 %lang(ru) %doc %{_mandir}/ru/man1/*
-%doc %{_mandir}/man8/*
+#doc #{_mandir}/man8/*
 
 %{_datadir}/WindowMaker
 
