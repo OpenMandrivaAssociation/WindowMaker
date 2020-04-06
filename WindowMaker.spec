@@ -54,7 +54,7 @@ Patch6:		wmaker-0.94.0-net_wm_moveresize.patch
 Requires:	desktop-common-data
 Requires:	mandriva-theme
 Requires:	xdg-compliance-menu
-Requires:	wmcalclock
+Recommends:	wmcalclock
 Obsoletes:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 Provides:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 
