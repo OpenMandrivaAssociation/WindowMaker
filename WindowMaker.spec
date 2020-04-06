@@ -47,9 +47,6 @@ Patch0:		WindowMaker-0.95.0-NET_WM_NAME.patch
 # correct focus not set on some qt windows, usually "About Qt"
 Patch2:		WindowMaker-0.95.0-qt_popup.patch
 
-# Fix build with ImageMagick 7
-Patch3:		WindowMaker-0.95.8-ImageMagick7.patch
-
 # Mageia patches
 Patch5:		windowmaker-0.95.2-mga-patch-WMState-to-use-old-Mageia-configuration.patch
 Patch6:		wmaker-0.94.0-net_wm_moveresize.patch
