@@ -18,7 +18,7 @@
 
 Summary:	A window manager for the X Window System
 Name:		WindowMaker
-Version:	0.95.8
+Version:	0.95.9
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/WindowMaker
@@ -42,13 +42,10 @@ Source24:	03WindowMaker
 Patch0:		WindowMaker-0.95.0-NET_WM_NAME.patch
 
 # include the xdg menu (do not replace the original menu since it contains windowmaker-specific commands)
-Patch1:		WindowMaker-0.95.0-applications-menu.patch
+#Patch1:		WindowMaker-0.95.0-applications-menu.patch
 
 # correct focus not set on some qt windows, usually "About Qt"
 Patch2:		WindowMaker-0.95.0-qt_popup.patch
-
-# Fix build with ImageMagick 7
-Patch3:		WindowMaker-0.95.8-ImageMagick7.patch
 
 # Mageia patches
 Patch5:		windowmaker-0.95.2-mga-patch-WMState-to-use-old-Mageia-configuration.patch
@@ -57,7 +54,7 @@ Patch6:		wmaker-0.94.0-net_wm_moveresize.patch
 Requires:	desktop-common-data
 Requires:	mandriva-theme
 Requires:	xdg-compliance-menu
-Requires:	wmcalclock
+Recommends:	wmcalclock
 Obsoletes:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 Provides:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
 
@@ -100,7 +97,7 @@ a workspace dock, a 'clip' which extends the application dock's usefulness.
 %lang(cs) %doc %{_mandir}/cs/man1/*
 %lang(sk) %doc %{_mandir}/sk/man1/*
 %lang(ru) %doc %{_mandir}/ru/man1/*
-%doc %{_mandir}/man8/*
+#doc #{_mandir}/man8/*
 
 %{_datadir}/WindowMaker
 
