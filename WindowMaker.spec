@@ -52,7 +52,7 @@ Patch5:		windowmaker-0.95.2-mga-patch-WMState-to-use-old-Mageia-configuration.pa
 Patch6:		wmaker-0.94.0-net_wm_moveresize.patch
 
 Requires:	desktop-common-data
-Requires:	mdistro-release-theme
+Requires:	distro-release-theme
 Requires:	xdg-compliance-menu
 Recommends:	wmcalclock
 Obsoletes:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
