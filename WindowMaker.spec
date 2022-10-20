@@ -19,7 +19,7 @@
 Summary:	A window manager for the X Window System
 Name:		WindowMaker
 Version:	0.95.9
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/WindowMaker
 URL:		http://www.windowmaker.info/
@@ -52,7 +52,7 @@ Patch5:		windowmaker-0.95.2-mga-patch-WMState-to-use-old-Mageia-configuration.pa
 Patch6:		wmaker-0.94.0-net_wm_moveresize.patch
 
 Requires:	desktop-common-data
-Requires:	mandriva-theme
+Requires:	mdistro-release-theme
 Requires:	xdg-compliance-menu
 Recommends:	wmcalclock
 Obsoletes:	windowmaker windowmaker-libs WindowMaker-kde WindowMaker-gnome WindowMaker-common
