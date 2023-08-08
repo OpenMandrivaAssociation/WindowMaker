@@ -18,12 +18,12 @@
 
 Summary:	A window manager for the X Window System
 Name:		WindowMaker
-Version:	0.95.9
-Release:	2
+Version:	0.96.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/WindowMaker
-URL:		http://www.windowmaker.info/
-Source0:	http://windowmaker.org/pub/source/release/%{name}-%{version}.tar.gz
+URL:		https://www.windowmaker.org/
+Source0:	https://github.com/window-maker/wmaker/releases/download/wmaker-%{version}/%{name}-%{version}.tar.gz
 Source1:	WindowMaker-data.tar.bz2
 Source4:	WindowMaker-menumethod
 Source6:	WindowMaker-WindowMaker
