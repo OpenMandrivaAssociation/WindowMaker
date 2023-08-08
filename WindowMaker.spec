@@ -49,7 +49,7 @@ Patch2:		WindowMaker-0.95.0-qt_popup.patch
 
 # Mageia patches
 Patch5:		windowmaker-0.95.2-mga-patch-WMState-to-use-old-Mageia-configuration.patch
-Patch6:		wmaker-0.94.0-net_wm_moveresize.patch
+Patch6:		wmaker-0.96.0-net_wm_moveresize.patch
 
 Requires:	desktop-common-data
 Requires:	distro-release-theme

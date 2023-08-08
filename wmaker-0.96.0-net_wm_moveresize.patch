@@ -1,0 +1,19 @@
+--- a/src/wmspec.c
++++ b/src/wmspec.c
+@@ -1809,10 +1809,14 @@ Bool wNETWMProcessClientMessage(XClientM
+ 
+ 		wFullscreenMonitorsWindow(wwin, top, bottom, left, right);
+ 		return True;
+-	}
+ #else
+-	}
++	} else if (event->message_type == net_wm_moveresize) {
++		/* TODO, but accept it anyway */
++
++		XUngrabPointer(dpy, CurrentTime);
++ 	}
+ #endif
++	}
+ 
+ #ifdef DEBUG_WMSPEC
+ 	wmessage("processClientMessage unsupported type %s", XGetAtomName(dpy, event->message_type));
