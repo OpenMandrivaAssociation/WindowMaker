@@ -83,31 +83,27 @@ applications on either an application dock, similar to AfterStep's Wharf or on
 a workspace dock, a 'clip' which extends the application dock's usefulness.
 
 %files -f WindowMaker.lang
-%doc AUTHORS BUGFORM BUGS ChangeLog COPYING.WTFPL FAQ NEWS README* TODO
+%license COPYING.WTFPL
+%doc AUTHORS BUGFORM BUGS ChangeLog FAQ NEWS README* TODO
 %dir %{_sysconfdir}/X11/WindowMaker/
 %config(noreplace) %{_sysconfdir}/X11/WindowMaker/*
 %{_sysconfdir}/menu.d/WindowMaker
 %config(noreplace) %{_sysconfdir}/X11/wmsession.d/*
-
 %{_bindir}/*
-
 %{gnustepdir}/Applications/WPrefs.app/
-
+%{_datadir}/applications/WPrefs.desktop
+%{_datadir}/WindowMaker
+%{_datadir}/WINGs
+%{_datadir}/xsessions/*
+%{_iconsdir}/WindowMaker.png
+%{_liconsdir}/WindowMaker.png
+%{_miconsdir}/WindowMaker.png
+%{_datadir}/pixmaps/*.png
 %doc %{_mandir}/man1/*
 %lang(cs) %doc %{_mandir}/cs/man1/*
 %lang(sk) %doc %{_mandir}/sk/man1/*
 %lang(ru) %doc %{_mandir}/ru/man1/*
 #doc #{_mandir}/man8/*
-
-%{_datadir}/WindowMaker
-
-%{_datadir}/WINGs
-
-%{_iconsdir}/WindowMaker.png
-%{_liconsdir}/WindowMaker.png
-%{_miconsdir}/WindowMaker.png
-
-%{_datadir}/pixmaps/*.png
 
 #-----------------------------------------------------------------------
 %package	-n %{libwraster}
@@ -218,8 +214,7 @@ This package allows building applications using the libWINGs library.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -q -a 1 -a 20
-%autopatch -p1
+%autosetup -p1 -a 1 -a 20
 
 %if %{snapshot}
 sh ./autogen.sh
@@ -227,28 +222,28 @@ sh ./autogen.sh
 autoreconf -fi
 %endif
 
-#-----------------------------------------------------------------------
 %build
 # protect the WPrefs.app location for unclean build envs with gnustep-make installed
 unset GNUSTEP_LOCAL_ROOT
 
 LINGUAS="bg cs da de el es et fi fr gl hr hu it ja ko nl no pl pt ro ru sk sv tr zh_CN zh_TW"
 export LINGUAS
-%configure	--sysconfdir=%{_sysconfdir}/X11 \
-		--localedir=%{_datadir}/locale \
-		--enable-sound  \
-		--with-pixmapdir=%{_datadir}/pixmaps \
-                --with-gnustepdir=%{gnustepdir} \
-		--enable-xinerama \
-		--enable-usermenu \
-		--with-pic \
-		--with-x
+%configure \
+	--sysconfdir=%{_sysconfdir}/X11 \
+	--localedir=%{_datadir}/locale \
+	--enable-sound \
+	--with-pixmapdir=%{_datadir}/pixmaps \
+	--with-gnustepdir=%{gnustepdir} \
+	--enable-xinerama \
+	--enable-usermenu \
+	--with-pic \
+	--with-x
 
-make
+%make_build
 
 #-----------------------------------------------------------------------
 %install
-%makeinstall_std
+%make_install
 find %{buildroot}%{_libdir} -name '*.la' -type f -delete -print
 
 install -d 644 %{buildroot}/%{_datadir}/pixmaps
@@ -301,9 +296,12 @@ bzcat %{SOURCE21} > %{buildroot}/%{_datadir}/%{name}/Themes/Galaxy.style
 install -D %{SOURCE24} %{buildroot}/%{_sysconfdir}/X11/wmsession.d/03WindowMaker
 
 %find_lang WPrefs
+%find_lang WRaster
 %find_lang WindowMaker
 %find_lang WINGs
 %find_lang wmgenmenu
 cat WPrefs.lang >> WindowMaker.lang
+cat WRaster.lang >> WindowMaker.lang
 cat WINGs.lang >> WindowMaker.lang
 cat wmgenmenu.lang >> WindowMaker.lang
+
