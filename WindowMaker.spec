@@ -214,7 +214,8 @@ This package allows building applications using the libWINGs library.
 
 #-----------------------------------------------------------------------
 %prep
-%autosetup -p1 -a 1 -a 20
+%setup -q -a 1 -a 20
+%autopatch -p1
 
 %if %{snapshot}
 sh ./autogen.sh
